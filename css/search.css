@@ -1,0 +1,28 @@
+html{
+
+}
+body {
+
+}
+#navbar{
+    width: 100vw;
+    position: absolute;
+    top:0;
+
+}
+#hamburgermenu{
+    position: absolute;
+    left:0;
+    top:0;
+}
+#hamburgermenu img{
+    height: 35px;
+}
+#logo{
+    position: absolute;
+    right:0px;
+    top:0px;
+}
+#logo img{
+    height: 50px;
+}
