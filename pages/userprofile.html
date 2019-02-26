@@ -1,9 +1,157 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>User Profile Page</title>
+	<meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="../css/profile.css">
+	<title>Profile Page</title>
 </head>
 <body>
+	<div id="container">
+		<div id="top">
+			<!-- <nav class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-left" id="cbp-spmenu-s1">
+				<a href="search.html">Search</a>
+				<a href="discover_page.html">Discover</a>
+				<a href="userprofile.html">Your favorites</a>
+			</nav> -->
+			<div id="profile-header">
+				<span></span>
+				<h1>Lisa Lee</h1>
+				<p>Los Angeles, CA</p>
+			</div>
+		</div>
 
+		<div id="favorites">
+			<h1>Favorites</h1>
+
+			<div class="favorite" id="amazebowl">
+				<img src="">
+				<p>Amazebowl</p>
+				<div class="stars">
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+				</div>
+				<button>Locate</button>
+			</div>
+
+			<div class="favorite">
+				<img src="">
+				<p>El Chato Taco</p>
+				<div class="stars">
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+				</div>
+				<button>Locate</button>
+			</div>
+
+			<div class="clearfloat"></div>
+		</div>
+
+		<div id="reviews">
+			<h1>My Reviews</h1>
+
+			<div class="review">
+				<div class="identity">
+					<span id="profile-pic"></span>
+					<p>Amazebowl</p>
+					<div class="stars">
+						<span></span>
+						<span></span>
+						<span></span>
+						<span></span>
+						<span></span>
+					</div>
+				</div>
+
+				<div class="user-review">
+				<div class="clearfloat"></div>
+					
+				</div>
+			</div>
+
+			<div class="review">
+				<div class="identity">
+					<span id="profile-pic"></span>
+					<p>El Chato Taco</p>
+					<div class="stars">
+						<span></span>
+						<span></span>
+						<span></span>
+						<span></span>
+						<span></span>
+					</div>
+				</div>
+
+				<div class="user-review">
+				<div class="clearfloat"></div>
+					
+				</div>
+			</div>
+
+			<div class="review">
+				<div class="identity">
+					<span id="profile-pic"></span>
+					<p>Kogi Food Truck</p>
+					<div class="stars">
+						<span></span>
+						<span></span>
+						<span></span>
+						<span></span>
+						<span></span>
+					</div>
+				</div>
+
+				<div class="user-review">
+				<div class="clearfloat"></div>
+					
+				</div>
+			</div>
+
+		</div>
+	</div>
 </body>
+
+<script src="js/classie.js"></script>
+		<script>
+			var menuLeft = document.getElementById( 'cbp-spmenu-s1' ),
+				showLeft = document.getElementById( 'showLeft' ),
+				body = document.body;
+
+			showLeft.onclick = function() {
+				classie.toggle( this, 'active' );
+				classie.toggle( menuLeft, 'cbp-spmenu-open' );
+				disableOther( 'showLeft' );
+			};
+			
+
+			function disableOther( button ) {
+				if( button !== 'showLeft' ) {
+					classie.toggle( showLeft, 'disabled' );
+				}
+				if( button !== 'showRight' ) {
+					classie.toggle( showRight, 'disabled' );
+				}
+				if( button !== 'showTop' ) {
+					classie.toggle( showTop, 'disabled' );
+				}
+				if( button !== 'showBottom' ) {
+					classie.toggle( showBottom, 'disabled' );
+				}
+				if( button !== 'showLeftPush' ) {
+					classie.toggle( showLeftPush, 'disabled' );
+				}
+				if( button !== 'showRightPush' ) {
+					classie.toggle( showRightPush, 'disabled' );
+				}
+			}
+</script>
+
 </html>

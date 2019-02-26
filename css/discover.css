@@ -1,0 +1,130 @@
+@font-face{
+    font-family: AvenirNextBold;
+    src: url(../resources/fonts/an-bold.ttf)
+}
+
+@font-face{
+    font-family: AvenirNextMedium;
+    src: url(../resources/fonts/an-medium.ttf)
+}
+
+body {
+	margin: 0;
+	padding: 0;
+	font-family: AvenirNextMedium;
+}
+
+nav {
+	font-family: AvenirNextBold;
+	font-size: 18pt;
+	text-decoration: none;
+	color: white;
+	background-color: #33ABAB;
+}
+
+#container {
+	position: relative;
+	width: 100%;
+}
+
+#top {
+	width: 90%;
+	height: 50px;
+	padding: 10px 5%;
+}
+
+#top-logo {
+	position: absolute;
+	right: 5%;
+	width: 15%;
+}
+
+#discover-header {
+	font-family: AvenirNextBold;
+	font-size: 36pt;
+	text-align: center;
+	color: white;
+	line-height: 200px;
+	background-color: #33ABAB;
+	height: 200px;
+}
+
+#discover {
+	width: 90%;
+	padding: 0px 5%;
+}
+
+.recommendation {
+	width: 100%;
+	margin: 20px 0 0 0;
+}
+
+.recommendation-header {
+	text-align: center;
+	color: white;
+	background-color: gray;
+	height: 150px;
+}
+
+.recommendation-header h1 {
+	font-size: 24pt;
+	margin: 0;
+	line-height: 100px;
+}
+
+.recommendation-header button {
+	font-size: 14pt;
+	width: 30%;
+	border: none;
+	border-radius: 25px;
+	background-color: #33ABAB;
+	color: white;
+	text-align: center;
+	padding: 5px;
+}
+
+.recommendation-content {
+	width: 100%;
+	font-size: 14pt;
+	font-style: italic;
+	height: auto;
+	background-color: #fcfcfc;
+	overflow: auto;
+}
+
+.recommendation-content span {
+	background: #F8E71C;
+  	height: 14px;
+  	width: 14px;  
+  	display: inline-block;
+  	border-radius: 14px;
+}
+
+.recommendation-content span:nth-child(5) {
+	background: #202020;
+	opacity: 0.2;
+}
+
+.recommendation-content .profile {
+	width: 30%;
+	padding: 10px 5%;
+	float: left;
+	margin: auto;
+	height: auto;
+}
+
+.recommendation-content .review {
+	width: 50%;
+	padding: 10px 5% 25px 5%;
+	float: left;
+	height: auto;
+}
+
+.clearfloat {
+	clear: both;
+}
+
+
+
+
+

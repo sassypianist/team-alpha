@@ -1,0 +1,23 @@
+@font-face{
+    font-family: AvenirNextBold;
+    src: url(../resources/fonts/an-bold.ttf)
+}
+
+body {
+	margin: 0;
+	padding: 0;
+	font-family: AvenirNextBold;
+	text-align: center;
+	width: 100%;
+}
+
+h1 {
+	font-size: 52pt;
+	color: #33ABAB;
+}
+
+span {
+	color: #202020;
+	opacity: .8;
+	font-size: 11pt;
+}
