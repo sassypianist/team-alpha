@@ -1,9 +1,54 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="../css/index.css">
 	<title>Discover Nearby Eats</title>
 </head>
 <body>
-
+	<nav class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-left" id="cbp-spmenu-s1">
+			<a href="search.html">Search</a>
+			<a href="discover_page.html">Discover</a>
+			<a href="userprofile.html">Your favorites</a>
+	</nav>
 </body>
+
+<script src="js/classie.js"></script>
+		<script>
+			var menuLeft = document.getElementById( 'cbp-spmenu-s1' ),
+				showLeft = document.getElementById( 'showLeft' ),
+				body = document.body;
+
+			showLeft.onclick = function() {
+				classie.toggle( this, 'active' );
+				classie.toggle( menuLeft, 'cbp-spmenu-open' );
+				disableOther( 'showLeft' );
+			};
+			
+
+			function disableOther( button ) {
+				if( button !== 'showLeft' ) {
+					classie.toggle( showLeft, 'disabled' );
+				}
+				if( button !== 'showRight' ) {
+					classie.toggle( showRight, 'disabled' );
+				}
+				if( button !== 'showTop' ) {
+					classie.toggle( showTop, 'disabled' );
+				}
+				if( button !== 'showBottom' ) {
+					classie.toggle( showBottom, 'disabled' );
+				}
+				if( button !== 'showLeftPush' ) {
+					classie.toggle( showLeftPush, 'disabled' );
+				}
+				if( button !== 'showRightPush' ) {
+					classie.toggle( showRightPush, 'disabled' );
+				}
+			}
+</script>
+
 </html>
