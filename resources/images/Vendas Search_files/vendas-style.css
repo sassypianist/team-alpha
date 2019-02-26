@@ -1,0 +1,31 @@
+
+@font-face{
+    font-family: AvenirNextMedium;
+    src: url(../resources/fonts/an-medium.ttf)
+}
+@font-face{
+    font-family: AvenirNextBold;
+    src: url(../resources/fonts/an-bold.ttf)
+}
+.normal-text{
+    font-family: AvenirNextMedium;
+    font-size: 14px;
+}
+.small-title{
+    font-family: AvenirNextBold;
+    font-size: 18px;
+}
+.medium-title{
+    font-family: AvenirNextBold;
+    font-size: 24px;
+}
+.large-title{
+    font-family: AvenirNextBold;
+    font-size: 36px;
+}
+.green{
+    color: #33abab;
+}
+.dark-gray{
+    color: #333333;
+}
