@@ -22,6 +22,15 @@ nav {
 	background-color: #33ABAB;
 }
 
+
+#menu {
+	font-family: AvenirNextBold;
+	font-size: 18pt;
+	text-decoration: none;
+	color: white;
+	background-color: #33ABAB;
+}
+
 #container {
 	position: relative;
 	width: 100%;
@@ -35,6 +44,14 @@ nav {
 	color: white;
 	overflow: auto;
 	text-align: center;
+	position: relative;
+}
+
+.nav-bar {
+	width: 10%;
+	left: 5%;
+	top: 10%;
+	position: absolute;
 }
 
 #profile-header p {
