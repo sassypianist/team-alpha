@@ -1,4 +1,7 @@
-@import url(//db.onlinewebfonts.com/c/bf69b9412d90c2a017d27cf7fe6f6c67?family=Avenir+Next);
+@font-face{
+    font-family: AvenirNextMedium;
+    src: url(../resources/fonts/an-medium.ttf)
+}
 
 nav {
 	font-family: "Avenir Next", sans-serif;
