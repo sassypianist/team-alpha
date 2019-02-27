@@ -11,9 +11,10 @@
 </head>
 <body>
 	<div id="container">
-		<div id="menu" class=".slideout-menu-left slideout-open slideout-menu">
+		<div id="menu">
+				<img src="../resources/images/close.png">
 				<a href="search.html">Search Vendors</a>
-				<a href="">Discover</a>
+				<a href="discover_page.html">Discover</a>
 				<a href="userprofile.html">Your Favorites</a>
 		</div>
 
@@ -124,39 +125,6 @@
 	</div>
 </body>
 
-<script src="js/classie.js"></script>
-		<script>
-			var menuLeft = document.getElementById( 'cbp-spmenu-s1' ),
-				showLeft = document.getElementById( 'showLeft' ),
-				body = document.body;
-
-			showLeft.onclick = function() {
-				classie.toggle( this, 'active' );
-				classie.toggle( menuLeft, 'cbp-spmenu-open' );
-				disableOther( 'showLeft' );
-			};
-			
-
-			function disableOther( button ) {
-				if( button !== 'showLeft' ) {
-					classie.toggle( showLeft, 'disabled' );
-				}
-				if( button !== 'showRight' ) {
-					classie.toggle( showRight, 'disabled' );
-				}
-				if( button !== 'showTop' ) {
-					classie.toggle( showTop, 'disabled' );
-				}
-				if( button !== 'showBottom' ) {
-					classie.toggle( showBottom, 'disabled' );
-				}
-				if( button !== 'showLeftPush' ) {
-					classie.toggle( showLeftPush, 'disabled' );
-				}
-				if( button !== 'showRightPush' ) {
-					classie.toggle( showRightPush, 'disabled' );
-				}
-			}
-</script>
+		<script></script>
 
 </html>

@@ -11,13 +11,14 @@
 </head>
 <body>
 	<div id="container">
-		<div id="menu" class=".slideout-menu-left slideout-open slideout-menu">
-			<a href="search.html">Search Vendors</a>
-			<a href="">Discover</a>
-			<a href="userprofile.html">Your Favorites</a>
+		<div id="menu">
+				<img src="../resources/images/close.png">
+				<a href="search.html">Search Vendors</a>
+				<a href="discover_page.html">Discover</a>
+				<a href="userprofile.html">Your Favorites</a>
 		</div>
 
-		<div id="panel" class="slideout-panel slideout-open slideout-open body slideout-open slideout-panel">
+		<div id="panel">
 			<div id="top">
 				<img class="nav-bar toggle-button" src="../resources/images/hamburger-icon.png">
 				<div id="top-logo">
@@ -124,19 +125,8 @@
 	</div>
 </body>
 
-	<script src="dist/slideout.min.js"></script>
 	<script>
-		var slideout = new Slideout({
-	  		'panel': document.getElementById('panel'),
-		    'menu': document.getElementById('menu'),
-		    'padding': 256,
-		    'tolerance': 70
-		 });
 
-		// Toggle button
-		document.querySelector('.toggle-button').addEventListener('click', function() {
-			slideout.toggle();
-		});
 	</script>
 
 </html>

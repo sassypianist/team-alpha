@@ -23,18 +23,55 @@ nav {
 }
 
 
-#menu {
-	font-family: AvenirNextBold;
-	font-size: 18pt;
-	text-decoration: none;
-	color: white;
-	background-color: #33ABAB;
-}
 
 #container {
 	position: relative;
 	width: 100%;
 }
+
+#menu {
+	background-color: #33ABAB;
+	width: 230px;
+	padding: 30px 10px 0px 30px;
+	height: 100%;
+	position: absolute;
+	text-align: center;
+	z-index: 2;
+}
+
+#panel {
+	z-index: 1;
+}
+
+#menu img {
+	width: 20px;
+	float: right;
+}
+
+#menu img:after {
+	clear: both;
+}
+
+#menu a {
+	text-decoration: none;
+	font-family: AvenirNextBold;
+	font-size: 18pt;
+	text-decoration: none;
+	color: white;
+	box-sizing: border-box;
+	display: block;
+	margin-top: 30px;
+}
+
+/*#menu a:nth-child(1) {
+	margin-top:;
+}*/
+
+#search {
+	margin-top: 100px;
+}
+
+
 
 #top {
 	width: 100%;
@@ -73,6 +110,7 @@ nav {
   	width: 100px;  
   	display: inline-block;
   	border-radius: 100px;
+
 }
 
 #favorites {
