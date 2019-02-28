@@ -39,6 +39,10 @@ nav {
 	z-index: 2;
 }
 
+#menu-links {
+	margin-top: 70px;
+}
+
 #panel {
 	z-index: 1;
 }
