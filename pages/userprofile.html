@@ -6,12 +6,11 @@
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="../css/profile.css">
-        <link rel="stylesheet" href="../css/index.css">
 	<title>Profile Page</title>
 </head>
 <body>
 	<div id="menu">
-		<img src="../resources/images/close.png">
+		<img src="../resources/images/close.png" id="close">
 		<div id="menu-links">
 			<a href="search.html">Search Vendors</a>
 			<a href="discover_page.html">Discover</a>
@@ -23,7 +22,7 @@
 		<div id="panel">
 			<div id="top">
 				<div id="profile-header">
-					<img class="nav-bar toggle-button" src="../resources/images/hamburger-icon.png">
+					<img class="nav-bar toggle-button" src="../resources/images/white-hamburger.png">
 					<img src="../resources/images/user_pic.png" id="user_pic">
 					<h1>Lisa Lee</h1>
 					<p>Los Angeles, CA</p>
@@ -35,7 +34,7 @@
 
 				<div class="favorite" id="amazebowl">
 					<img src="../resources/images/amazebowl_profile.png">
-					<p>Amazebowl</p>
+					<p>Amazebowls</p>
 					<div class="stars">
 						<span></span>
 						<span></span>
@@ -43,7 +42,7 @@
 						<span></span>
 						<span></span>
 					</div>
-					<button>Locate</button>
+					<button><a href="https://goo.gl/maps/tsdw5qRFzAL2">Locate</a></button>
 				</div>
 
 				<div class="favorite">
@@ -56,7 +55,7 @@
 						<span></span>
 						<span></span>
 					</div>
-					<button>Locate</button>
+					<button><a href="https://goo.gl/maps/m7VFfkrrpMw">Locate</a></button>
 				</div>
 
 				<div class="clearfloat"></div>
@@ -68,7 +67,7 @@
 				<div class="review">
 					<div class="identity">
 						<img class="profile-pic" src="../resources/images/amazebowl_profile.png">
-						<p>Amazebowl</p>
+						<p>Amazebowls</p>
 						<div class="stars">
 							<span></span>
 							<span></span>
@@ -136,9 +135,11 @@
     	document.getElementById("container").style.transform = "translate(290px, 0px)";
     }
 
-    // document.querySelector("#close").onclick = function() {
-    // 	document.getElementById("menu")style.transform = "translate(0px, 0px)";
-    // }
+    document.querySelector("#close").onclick = function() {
+    	document.getElementById("menu").style.transform = "translate(0px, 0px)";
+    	document.getElementById("container").style.transform = "translate(0px, 0px)";
+    }
+
 
 
 </script>

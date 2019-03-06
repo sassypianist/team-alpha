@@ -18,6 +18,8 @@ nav {
 
 
 
+
+
 body {
 	margin: 0;
 	padding: 0;
@@ -30,7 +32,7 @@ body {
 	width: 230px;
 	padding: 30px 30px 0px 30px;
 	height: 100%;
-	position: absolute;
+	position: fixed;
 	text-align: center;
 	z-index: 2;
 
@@ -72,6 +74,10 @@ body {
 	width: 100%;
 	transition: all 0.4s ease-in-out;
 }
+
+
+
+
 
 /*#menu a:nth-child(1) {
 	margin-top:;
@@ -142,6 +148,11 @@ body {
 
 .favorite p {
 	margin: 5px;
+}
+
+.favorite a {
+	color: white;
+	text-decoration: none;
 }
 
 .favorite img {
