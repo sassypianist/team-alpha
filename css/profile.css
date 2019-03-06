@@ -259,6 +259,16 @@ body {
   	border-radius: 11px;
 }
 
+#threestars span:nth-child(4) {
+	background: #202020;
+	opacity: 0.2;
+}
+
+#fivestars span:nth-child(5) {
+	background: #F8E71C;
+	opacity: 1;
+}
+
 .identity .stars span:nth-child(5) {
 	background: #202020;
 	opacity: 0.2;

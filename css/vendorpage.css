@@ -167,4 +167,18 @@
         top:20px;
     }
 
+    .stars span {
+        background: #F8E71C;
+        height: 11px;
+        width: 11px;  
+        display: inline-block;
+        border-radius: 11px;
+        margin-top: 10px;
+    }
+
+    .stars span:nth-child(5) {
+        background: #202020;
+        opacity: 0.2;
+    }
+
 }
