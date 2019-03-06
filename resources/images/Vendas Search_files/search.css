@@ -101,16 +101,14 @@
 
     #map-wrapper{
         flex-grow:1;
-        overflow:hidden;
-
     }
     .map{
-        
+        overflow:hidden;
         position: relative;
         left:5%;
         top:5%;
+        height:90%;
         width:90%;
-        padding-bottom:80%;
     }
     .map iframe{
         position: absolute;

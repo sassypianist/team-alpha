@@ -1,6 +1,9 @@
-<!-- This is just a file to get the pages folder into the github -->
 <!DOCTYPE html>
-<html class="gr__"><head>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js"><!--<![endif]--><head>
 <meta http-equiv="content-type" content="text/html; charset=UTF-8">
         </head><body class="normal-text" data-gr-c-s-loaded="true"><access-control-allow-origin></access-control-allow-origin>
         <meta charset="utf-8">
@@ -8,96 +11,52 @@
         <title>Vendas Search</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="Vendas%20Search_files/vendorpage.css">
+        <link rel="stylesheet" href="Vendas%20Search_files/search.css">
         <link rel="stylesheet" href="Vendas%20Search_files/vendas-style.css">
         <script src="Vendas%20Search_files/jquery-3.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous">
         </script>
-         <script src="Vendas%20Search_files/vendorpage.js"></script> 
+        <script src="Vendas%20Search_files/vendas.js"></script> 
     
     
+        <div id="menu" style="display: none;">
+            <img id="close-slide" src="Vendas%20Search_files/close.png">
+            <div id="menu-links">
+                <a href="file:///Users/andywood/Documents/GitHub/team-alpha/pages/search.html">Search Vendors</a>
+                <a href="file:///Users/andywood/Documents/GitHub/team-alpha/pages/discover_page.html">Discover</a>
+                <a href="file:///Users/andywood/Documents/GitHub/team-alpha/pages/userprofile.html">Your Favorites</a>
+            </div>
+        </div>
         <div id="navbar">
             <div id="hamburger-menu">
-                <img src="Vendas%20Search_files/hamburger-icon.png">
+                <img id="hamburger-menu-img" src="Vendas%20Search_files/hamburger-icon.png">
+            </div>
+            <div id="logo">
+                <img src="Vendas%20Search_files/logo.svg" alt="logo">
             </div>
         </div>
         <div id="content">
-            <div id="cover-overlay" style="display: none;">
-                <img src="Vendas%20Search_files/Amazebowls-cover.jpg">
-                    <div id="exit-button">
-
+            <div id="search-wrapper">
+                <h1 class="green large-title">Find Street Vendors</h1>
+                <form id="search-bar" _lpchecked="1">
+                    <input type="text" placeholder="Search Vendors..." value="D">
+                    <input type="submit" style="display: none">
+                </form>
+                <div id="searchrecomendations">
+                    <div class="recomendation">
+                        <img src="Vendas%20Search_files/Empty-Icon.png" alt="icon">
+                        <div class="recomendationName"><a href="file:///Users/andywood/Documents/GitHub/team-alpha/pages/vendorpage.html">Armando's</a></div>
+                        <div class="recomendationDistance">6 min</div>
                     </div>
-                
+                    <div class="recomendation">
+                            <img src="Vendas%20Search_files/Empty-Icon.png" alt="icon">
+                            <div class="recomendationName"><a href="file:///Users/andywood/Documents/GitHub/team-alpha/pages/vendorpage.html">Amazebowls</a></div>
+                            <div class="recomendationDistance">10 min</div>
+                        </div>
+                </div>
             </div>
-            <div class="header-image">
-                <a id="header-image-link">
-                    <img src="Vendas%20Search_files/Amazebowls-cover.jpg">
-                </a>
-            </div>
-            <div id="vendor-info">
-                <div id="top-info">
-                    <div id="title-wrapper">
-                        <div id="vendor-name" class="medium-title green">
-                            Amazebowls
-                        </div>
-                        <div id="phone-number">
-                            123-435-789
-                        </div>
-                        <div id="hours-wrapper">
-                            <div id="hours-status">
-                                Open
-                            </div>
-                            <div id="hours">
-                                (8:00AM - 6PM)
-                            </div>
-                        </div>
-                        <div id="rating">
-                            Rating Here
-                        </div>
-                    </div>
-                    <div id="favorite-button">
-                        <img src="Vendas%20Search_files/map-icon.svg">
-                    </div>
-                </div>
-                <div id="description" class="dark-gray">
-                        Lorem Ipsum is simply dummy text of the printing
- and typesetting industry. Lorem Ipsum has been the industry's standard 
-dummy text ever since the 1500s, when an unknown printer took a galley 
-of type and scrambled it to make a type specimen book. It has survived 
-not only five centuries, but also the leap into electronic typesetting, 
-remaining essentially unchanged.
-                </div>
-                <div id="map-wrapper">
-                    <div class="map">
-                        <iframe src="Vendas%20Search_files/embed.html" style="border:0" allowfullscreen="" frameborder="0"></iframe>
-                    </div>
-                </div>
-                <div id="reviews-wrapper">
-                    <h2 class="medium-title green">Reviews</h2>
-                    <input class="review-input" placeholder="Tap to review...">
-                    <div class="review-wrapper">
-                        <div class="review-left">
-                            <div class="profile_photo">
-                                <img src="Vendas%20Search_files/Empty-Icon.png">
-                            </div>
-                            <div class="profile-name">Lisa Lee</div>
-                            <div class="rating">Rating Here</div>
-                        </div>
-                        <div class="rating_text">
-                            <p>It was great! I loved it.</p>
-                        </div>
-                    </div>
-                    <div class="review-wrapper">
-                            <div class="review-left">
-                                <div class="profile_photo">
-                                    <img src="Vendas%20Search_files/Empty-Icon.png">
-                                </div>
-                                <div class="profile-name">Tiffany Chen</div>
-                                <div class="rating">Rating Here</div>
-                            </div>
-                            <div class="rating_text">
-                                <p>Its always so Refreshing ;)</p>
-                            </div>
-                        </div>
+            <div id="map-wrapper">
+                <div class="map">
+                    <iframe src="Vendas%20Search_files/embed.html" style="border:0" allowfullscreen="" frameborder="0"></iframe>
                 </div>
             </div>
         </div>

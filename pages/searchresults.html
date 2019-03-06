@@ -10,17 +10,34 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="../css/searchresults.css">
         <link rel="stylesheet" href="../css/vendas-style.css">
+        <script
+			  src="https://code.jquery.com/jquery-3.3.1.min.js"
+			  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+              crossorigin="anonymous">
+        </script>
+        <script src="../javascript/vendas.js"></script> 
     </head>
     <body class="normal-text">
+            <div id="menu">
+                    <img id="close-slide" src="../resources/images/close.png">
+                    <div id="menu-links">
+                        <a href="search.html">Search Vendors</a>
+                        <a href="discover_page.html">Discover</a>
+                        <a href="userprofile.html">Your Favorites</a>
+                    </div>
+                </div>
+        <div id="container">
         <div id="navbar">
             <div id="hamburger-menu">
-                <img src="../resources/images/hamburger-icon.png">
+                <img id="hamburger-menu-img" src="../resources/images/hamburger-icon.png">
             </div>
             <div id="logo">
                 <img src="../resources/images/logo.svg" alt="logo">
             </div>
         </div>
         <div id="content">
+            
+            
             <div id="search-wrapper">
                 <div id=search-bar>
                     <input type="text" placeholder="Search Vendors...">
@@ -70,7 +87,7 @@
                 </div>
             </div>
         </div>
-
+    </div>
     </body>
 </html>
 
