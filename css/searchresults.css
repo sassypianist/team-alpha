@@ -61,7 +61,7 @@
         padding: 10px 5px 10px 40px;
         border-radius: 15px;
         border: solid 1px #9B9B9B;
-        background: url("../resources/images/search-icon.png");
+        background: url("../resources/images/search-icon-dark-01.png");
         background-size: 30px;
         background-repeat: no-repeat;
         background-position: 5px 50%;
@@ -73,6 +73,10 @@
         width:90%;
         margin-left:5%;
         margin-right:5%;
+    }
+    #searchrecomendations a{
+        text-decoration: none;
+        color: black;
     }
     #results-number{
         margin-left:5%;
@@ -103,6 +107,11 @@
     }
     .vendor-rating{
 
+    }
+    .crop{
+        height:100px;
+        width:100px;
+        overflow: hidden;
     }
     
 }

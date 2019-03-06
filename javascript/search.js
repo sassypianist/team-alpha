@@ -10,10 +10,9 @@ $(document).ready(function(){
         $("#menu").fadeOut(200);
     });
 
-    $("#search-bar").submit(function(e){
-        e.preventDefault();
-        console.log("sumbitting");
-        //window.location.replace("../resources/pages/searchresults.html");
+    $("#search_submit_images").click(function(){
+       console.log("triggered");
+        window.location.replace("../pages/searchresults.html");
     });
 
 });

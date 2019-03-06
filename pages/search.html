@@ -18,6 +18,7 @@
               crossorigin="anonymous">
         </script>
         <script src="../javascript/vendas.js"></script> 
+        <script src="../javascript/search.js"></script> 
     </head>
     <body class="normal-text">
         <div id="menu">
@@ -40,10 +41,12 @@
             <div id="content">
                 <div id="search-wrapper">
                     <h1 class="green large-title">Find Street Vendors</h1>
-                    <form id="search-bar">
-                        <input type="text" placeholder="Search Vendors...">
-                        <input type="submit" style="display: none">
-                    </form>
+                    <div id="search-bar">
+                        <input type="text" placeholder="Search Vendors..."></input>
+                        <div id="search_submit">
+                            <img id="search_submit_images" src="../resources/images/search-icon.png" alt="">
+                        </div>
+                    </div>
                     <div id="searchrecomendations">
                         <div class="recomendation">
                             <img src="../resources/images/pin-icon.png" alt="icon">
