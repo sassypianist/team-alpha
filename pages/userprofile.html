@@ -10,21 +10,21 @@
 	<title>Profile Page</title>
 </head>
 <body>
-	<div id="container">
-		<div id="menu">
-				<img src="../resources/images/close.png">
-			<div id="menu-links">
-				<a href="search.html">Search Vendors</a>
-				<a href="discover_page.html">Discover</a>
-				<a href="userprofile.html">Your Favorites</a>
-			</div>
+	<div id="menu">
+		<img src="../resources/images/close.png">
+		<div id="menu-links">
+			<a href="search.html">Search Vendors</a>
+			<a href="discover_page.html">Discover</a>
+			<a href="userprofile.html">Your Favorites</a>
 		</div>
+	</div>
+	<div id="container">
 
 		<div id="panel">
 			<div id="top">
 				<div id="profile-header">
 					<img class="nav-bar toggle-button" src="../resources/images/hamburger-icon.png">
-					<span></span>
+					<img src="../resources/images/user_pic.png" id="user_pic">
 					<h1>Lisa Lee</h1>
 					<p>Los Angeles, CA</p>
 				</div>
@@ -34,7 +34,7 @@
 				<h1>Favorites</h1>
 
 				<div class="favorite" id="amazebowl">
-					<img src="">
+					<img src="../resources/images/amazebowl_profile.png">
 					<p>Amazebowl</p>
 					<div class="stars">
 						<span></span>
@@ -47,7 +47,7 @@
 				</div>
 
 				<div class="favorite">
-					<img src="">
+					<img src="../resources/images/taco_profile.png">
 					<p>El Chato Taco</p>
 					<div class="stars">
 						<span></span>
@@ -67,7 +67,7 @@
 
 				<div class="review">
 					<div class="identity">
-						<span id="profile-pic"></span>
+						<img class="profile-pic" src="../resources/images/amazebowl_profile.png">
 						<p>Amazebowl</p>
 						<div class="stars">
 							<span></span>
@@ -79,6 +79,7 @@
 					</div>
 
 					<div class="user-review">
+						<p>It was great! I loved it!</p>
 					<div class="clearfloat"></div>
 						
 					</div>
@@ -86,7 +87,7 @@
 
 				<div class="review">
 					<div class="identity">
-						<span id="profile-pic"></span>
+						<img class="profile-pic" src="../resources/images/taco_profile.png">
 						<p>El Chato Taco</p>
 						<div class="stars">
 							<span></span>
@@ -98,6 +99,7 @@
 					</div>
 
 					<div class="user-review">
+						<p>Best tacos I ever had.</p>
 					<div class="clearfloat"></div>
 						
 					</div>
@@ -105,7 +107,7 @@
 
 				<div class="review">
 					<div class="identity">
-						<span id="profile-pic"></span>
+						<img class="profile-pic" src="../resources/images/kogi_profile.jpg">
 						<p>Kogi Food Truck</p>
 						<div class="stars">
 							<span></span>
@@ -117,6 +119,7 @@
 					</div>
 
 					<div class="user-review">
+						<p>It was okay for a food truck.</p>
 					<div class="clearfloat"></div>
 						
 					</div>
@@ -126,4 +129,17 @@
 		</div>
 	</div>
 </body>
+<script>
+
+    document.querySelector(".nav-bar").onclick = function() {
+    	document.getElementById("menu").style.transform = "translate(290px, 0px)";
+    	document.getElementById("container").style.transform = "translate(290px, 0px)";
+    }
+
+    // document.querySelector("#close").onclick = function() {
+    // 	document.getElementById("menu")style.transform = "translate(0px, 0px)";
+    // }
+
+
+</script>
 </html>

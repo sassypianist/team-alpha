@@ -10,16 +10,15 @@
 	<title>Discover Nearby Eats</title>
 </head>
 <body>
-	<div id="container">
-		<div id="menu">
-				<img src="../resources/images/close.png">
+	<div id="menu">
+				<img src="../resources/images/close.png" id="close">
 				<div id="menu-links">
 					<a href="search.html">Search Vendors</a>
 					<a href="discover_page.html">Discover</a>
 					<a href="userprofile.html">Your Favorites</a>
 				</div>
-		</div>
-
+	</div>
+	<div id="container">
 		<div id="panel">
 			<div id="top">
 				<img class="nav-bar toggle-button" src="../resources/images/hamburger-icon.png">
@@ -42,7 +41,7 @@
 
 					<div class="recommendation-content">
 						<div class="profile">
-							<div class="img"></div>
+							<img src="../resources/images/rory.jpg" class="img">
 							<p>Rory Mahler</p>
 							<div class="stars">
 								<span></span>
@@ -54,9 +53,8 @@
 						</div>
 						<div class="review">
 							<p>"So happy this truck was at Conquest -- the bulgogi tacos were the best! Hope to find this truck around LA soon."</p>
-
-							<div class="bookmark"></div>
 						</div>
+						<div class="bookmark"><img src="../resources/images/save.png" id="save_button1"></div>
 					</div>
 
 					<div class="clearfloat"></div>
@@ -72,7 +70,7 @@
 
 					<div class="recommendation-content">
 						<div class="profile">
-							<div class="img"></div>
+							<img src="../resources/images/ezra.jpg" class="img">
 							<p>Ezra Koenig</p>
 							<div class="stars">
 								<span></span>
@@ -84,9 +82,8 @@
 						</div>
 						<div class="review">
 							<p>"For a vendor with the audacity to to call themselves Prince of Venice, I expected royal perfection -- and it was close to it, I got Pasta alla Pollo and Curry from a truck. I just wish the prices weren't royally as grand."</p>
-
-							<div class="bookmark"></div>
 						</div>
+						<div class="bookmark"><img src="../resources/images/save.png" id="save_button2"></div>
 					</div>
 
 					<div class="clearfloat"></div>
@@ -102,7 +99,7 @@
 
 					<div class="recommendation-content">
 						<div class="profile">
-							<div class="img"></div>
+							<img src="../resources/images/amaka.jpg" class="img">
 							<p>Amaka Oneheh</p>
 							<div class="stars">
 								<span></span>
@@ -114,9 +111,8 @@
 						</div>
 						<div class="review">
 							<p>"A solid lunch option -- they offer a variety of different cuisines, so you can order whatever you feel like! The only issue is that it takes awhile -- so make sure you get there as early as possible!"</p>
-
-							<div class="bookmark"></div>
 						</div>
+						<div class="bookmark"><img src="../resources/images/save.png" id="save_button3"></div>
 					</div>
 
 					<div class="clearfloat"></div>
@@ -126,5 +122,52 @@
 		</div>
 	</div>
 </body>
+
+<script>
+	document.getElementById("save_button1").onclick = function() {
+
+		if (document.getElementById("save_button1").src == "../resources/images/save.png") {
+			document.getElementById("save_button1").src = "../resources/images/selected.png";
+   		}
+   		else {
+   			document.getElementById("save_button1").src = "../resources/images/save.png";
+    	}
+
+	}
+
+	document.getElementById("save_button2").onclick = function() {
+
+		if (document.getElementById("save_button2").src == "../resources/images/save.png") {
+			document.getElementById("save_button2").src = "../resources/images/selected.png";
+   		}
+   		else {
+   			document.getElementById("save_button2").src = "../resources/images/save.png";
+    	}
+
+	}
+
+	document.getElementById("save_button3").onclick = function() {
+
+		if (document.getElementById("save_button3").src == "../resources/images/save.png") {
+			document.getElementById("save_button3").src = "../resources/images/selected.png";
+   		}
+   		else {
+   			document.getElementById("save_button3").src = "../resources/images/save.png";
+    	}
+
+    }
+
+    document.querySelector(".nav-bar").onclick = function() {
+    	document.getElementById("menu").style.transform = "translate(290px, 0px)";
+    	document.getElementById("container").style.transform = "translate(290px, 0px)";
+    }
+
+    document.querySelector("#close").onclick = function() {
+    	document.getElementById("menu").style.transform = "translate(0px, 0px)";
+    	document.getElementById("container").style.transform = "translate(0px, 0px)";
+    }
+
+
+</script>
 
 </html>
