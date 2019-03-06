@@ -1,0 +1,184 @@
+@media (min-width: 320px) and (max-width: 480px) {
+    html{
+        height:100%;
+        width: 100%;
+    }
+    body {
+        width: 100%;
+        height: 100%;
+        margin:0;
+    }
+    #navbar{
+        width: 100vw;
+        height:75px;
+        position: absolute;
+        top:0;
+    }
+    #hamburger-menu{
+        position: absolute;
+        left:25px;
+        top:25px;
+    }
+    #hamburger-menu img{
+        height: 30px;
+    }
+    #content{
+        display:flex;
+        flex-direction:column;
+        height:100%;
+        background-color:#FAFAFA;
+    }
+    .header-image{
+        max-height: 30vh;
+        width:100%;
+        overflow:hidden;
+    }
+    .header-image img{
+        width:100%;
+    }
+    #top-info{
+        margin-left:7%;
+        display: flex;
+        flex-direction: row;
+        margin-bottom: 20px;
+        margin-top: 30px;
+    }
+    #title-wrapper{
+        width:70%;
+    }
+    #favorite-button img{
+        width:40px;
+    }
+    #hours-wrapper{
+        display:flex;
+        flex-direction: row;
+    }
+    #hours-status{
+        margin-right:10px;
+
+    }
+    #description{
+        width:70%;
+        margin-left:auto;
+        margin-right: auto;
+    }
+    #map-wrapper{
+        flex-grow:1;
+        margin-top: 40px;
+        height: 40vh;
+    }
+    .map{
+        overflow:hidden;
+        position: relative;
+        left:5%;
+        top:5%;
+        height:90%;
+        width:90%;
+    }
+    .map iframe{
+        position: absolute;
+        left:0;
+        top:0;
+        height:100%;
+        width:100%;
+    }
+    #reviews-wrapper{
+        display: flex;
+        flex-direction: column;
+        margin-left: 4%;
+        margin-bottom:20px;
+    }
+    .review-input{
+        width: 90%;
+        height: 30px;
+        padding-left:5px;
+        color: #333333;
+    }
+    .review-wrapper{
+        margin-top: 20px;
+        width:90%;
+        margin-right:7%;
+        display: flex;
+        flex-direction: row;
+        height: 130px;
+
+    }
+    .review-left{
+        display: flex;
+        flex-direction: column;
+        width:35%;
+    }
+    .profile_photo{
+        margin-top: 20px;
+        margin-left:auto;
+        margin-right:auto;
+        width:50px;
+        overflow: hidden;
+    }
+    .profile_photo img{
+        width:100%;
+        border-radius: 50%;
+    }
+    .profile-name{
+        margin-left:auto;
+        margin-right:auto;
+    }
+    .rating{
+        margin-left:auto;
+        margin-right:auto;
+    }
+    .rating_text{
+        flex-grow: 1;
+        border: solid 1px grey;
+        border-radius: 10px;
+        height: 100%;
+    }
+    .rating_text p{
+    padding: 5px 10px;
+    }
+    #cover-overlay{
+        z-index: 1;
+        Height: 100vh;
+        width:100vw;
+        position: fixed;
+        left:0;
+        right:0;
+        background-color: black;
+        opacity: 70%;
+    }
+    #cover-overlay img {
+        z-index: 2;
+        width:80vw;
+        height:auto;
+        position: fixed;
+        left:50vw;
+        top:50vh;
+        transform: translate(-50%, -50%);
+    }
+    #exit-button{
+        background-image: url(../resources/images/close.png);
+        background-size: 50px;
+        background-repeat: no-repeat;
+        z-index: 2;
+        width:50px;
+        height:50px;
+        position:fixed;
+        right:20px;
+        top:20px;
+    }
+
+    .stars span {
+        background: #F8E71C;
+        height: 11px;
+        width: 11px;  
+        display: inline-block;
+        border-radius: 11px;
+        margin-top: 10px;
+    }
+
+    .stars span:nth-child(5) {
+        background: #202020;
+        opacity: 0.2;
+    }
+
+}

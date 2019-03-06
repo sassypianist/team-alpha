@@ -1,0 +1,121 @@
+@media (min-width: 320px) and (max-width: 480px) {
+    html{
+        height:100%;
+        width: 100%;
+    }
+    body {
+        width: 100%;
+        height: 100%;
+        margin:0;
+        margin: 0;
+	    padding: 0;
+	    font-family: AvenirNextMedium;
+	    position: relative;
+    }
+    #navbar{
+        width: 100vw;
+        height:75px;
+        position: absolute;
+        top:0;
+    }
+    #hamburger-menu{
+        position: absolute;
+        left:25px;
+        top:25px;
+    }
+    #hamburger-menu img{
+        height: 30px;
+    }
+    #logo{
+        position: absolute;
+        right:25px;
+        top:25px;
+    }
+    #logo img{
+        height: 30px;
+    }
+    #content{
+        display:flex;
+        flex-direction:column;
+        height:100%;
+        background-color:#FAFAFA;
+       
+
+    }
+    #search-wrapper{
+        width: 95vw;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 75px;
+        
+    }
+    #search-bar{
+        margin-left:auto;
+        margin-right:auto;
+    }
+    #search-bar input{
+        width: 80vw;
+        font-size: 18px;
+        color: #9B9B9B;
+        height: 25px;
+        padding: 10px 5px 10px 40px;
+        border-radius: 15px;
+        border: solid 1px #9B9B9B;
+        background: url("../resources/images/search-icon-dark-01.png");
+        background-size: 30px;
+        background-repeat: no-repeat;
+        background-position: 5px 50%;
+
+    }
+    #searchrecomendations{
+        display: flex;
+        flex-direction: column;
+        width:90%;
+        margin-left:5%;
+        margin-right:5%;
+    }
+    #searchrecomendations a{
+        text-decoration: none;
+        color: black;
+    }
+    #results-number{
+        margin-left:5%;
+        margin-top:10px;
+        margin-bottom:20px;
+    }
+    .recomendation{
+        display: flex;
+        flex-direction: row;
+        height: 100px;
+        font-size: 16px;
+        margin-bottom: 20px;
+    }
+    .recomendation img{
+        height: 100px;
+    }
+    .vendor-info{
+       
+        margin-left: 10px;
+        display:flex;
+        flex-direction: column;
+    }
+    .vendor-name{
+
+    }
+    .vendor-distance{
+       
+    }
+    .vendor-rating{
+
+    }
+    .crop{
+        height:100px;
+        width:100px;
+        overflow: hidden;
+    }
+    
+}
+h1{
+    margin-top:95px;
+    margin-left:10px;
+}
