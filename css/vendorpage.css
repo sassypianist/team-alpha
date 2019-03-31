@@ -138,13 +138,14 @@
     }
     #cover-overlay{
         z-index: 1;
-        Height: 100vh;
+        height: 100vh;
         width:100vw;
         position: fixed;
         left:0;
         right:0;
         background-color: black;
         opacity: 70%;
+        display: none;
     }
     #cover-overlay img {
         z-index: 2;
