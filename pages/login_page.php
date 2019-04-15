@@ -1,3 +1,63 @@
+<?php
+session_start();
+
+$host = "460.itpwebdev.com";
+$username = "alpha_admin";
+$pass = "alpha2019";
+$db = "alpha_vendas_db";
+$tbl_name = "user";
+
+$mysqli = new mysqli($host, $username, $pass, $db);
+
+
+if ($mysqli->connect_errno) {
+	echo $mysqli->connect_error;
+	exit();
+} 
+
+if ( !isset($_SESSION['logged_in']) || !$_SESSION['logged_in'] ) {
+	// User Not Logged In.
+
+	if ( isset($_POST['email']) && isset($_POST['password']) ) {
+		// Form was submitted
+
+
+		$con = mysqli_connect($host, $username, $pass, $db);
+
+		$email = $_POST['email']; 
+		$password = $_POST['password']; 
+
+		$result = mysqli_query($con, "SELECT * FROM $tbl_name WHERE email = '$email' and password = '$password'");
+		$count = mysqli_num_rows($result); 
+
+		if ( empty($_POST['email']) || empty($_POST['password']) ) {
+			// Missing username or password.
+			$error = "Please enter email and password.";
+		} 
+		elseif ( $count == 1 ) {
+			// Valid credentials. Log in the user.
+			$_SESSION['logged_in'] = true;
+			$_SESSION['email'] = $email; 
+    		$_SESSION['password'] = $password; 
+    		// get the result set from the query
+    		$result = mysqli_fetch_array($result); 
+    		
+			header('Location: ../pages/userprofile.php');
+		} 
+		else {
+			// Invalid credentials.
+			$error = "Invalid email or password.";
+		}
+	}
+}
+
+else {
+
+	header('Location: /pages/search.php');
+}
+
+
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,11 +74,10 @@
 	<div id="menu">
 				<img src="../resources/images/close.png" id="close">
 				<div id="menu-links">
-					<a href="search.html">Search Vendors</a>
-					<a href="discover_page.html">Discover</a>
-					<a href="userprofile.html">Your Favorites</a>
-					<a href="login_page.php">Login</a>
-					<a href="register_page.php">Register</a>
+					<a href="search.php">Search Vendors</a>
+					<a href="discover_page.php">Discover</a>
+					<a href="userprofile.php">Your Favorites</a>
+					<?php include 'nav.php'; ?>
 				</div>
 	</div>
 	<div id="container">
@@ -47,6 +106,7 @@
 						
 						<button type="submit" id="submit" value="login">Login</button>
 					</form>
+
 					<a href="register_page.php" id="register_redirect">Don't have an account? Click here to register.</a>
 			</div>
 

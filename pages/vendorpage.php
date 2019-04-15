@@ -23,9 +23,10 @@
         <div id="menu">
             <img id="close-slide" src="../resources/images/close.png">
             <div id="menu-links">
-                <a href="search.html">Search Vendors</a>
-                <a href="discover_page.html">Discover</a>
-                <a href="userprofile.html">Your Favorites</a>
+                <a href="search.php">Search Vendors</a>
+                <a href="discover_page.php">Discover</a>
+                <a href="userprofile.php">Your Favorites</a>
+                <?php include 'nav.php'; ?>
             </div>
         </div>
         <div id="container">
