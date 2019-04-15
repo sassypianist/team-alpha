@@ -1,3 +1,34 @@
+<?php
+
+    $host = "460.itpwebdev.com";
+    $user = "alpha";
+    $pass = "uscItp460";
+    $db = "alpha_vendas_db";
+
+    $mysqli = new mysqli($host, $user, $pass, $db);
+        if ( $mysqli->connect_errno ) {
+            echo $mysqli->connect_error;
+            exit();
+        }
+
+    // Retrieve all DVD titles (and awards?) from the DB.
+    $sql_trucks = "SELECT * FROM truck;";
+
+    $results_trucks = $mysqli->query( $sql_trucks );
+
+    // Check for SQL Errors.
+    if ( !$results_trucks ) {
+        echo $mysqli->error;
+        $mysqli->close();
+        exit();
+    }
+
+
+    $mysqli->close();
+
+?>
+
+
 <!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
