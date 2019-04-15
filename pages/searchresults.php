@@ -74,77 +74,68 @@
                 <img src="../resources/images/logo.svg" alt="logo">
             </div>
         </div>
-        <div id="content">
-            
-            
-            <div id="search-wrapper">
-                <div id=search-bar>
-                    <input type="text" placeholder="Search Vendors...">
-                </div>
-            </div>
-            <div id="results-number" class="small-title green"> <?php echo $results->num_rows; ?> results</div>
-            <div id="searchrecomendations">
+        <table id="searchrecomendations">
+                    <a href="vendorpage.html">
+                            <tr class="recomendation">
+                                <td class="crop">
+                                    <img src="../resources/images/amazebowl_profile.png" alt="icon">
+                                </td>
+                                <td class="vendor-info">
+                                    <div class="vendor-name small-title green">Amazebowls</div>
+                                    <div class="vendor-distance">0.4 miles</div>
+                                    <div class="vendor-rating">Rating here</div>
+                                </td>
+                            </tr>
+                        </a>
                 <a href="vendorpage.html">
-                    <div class="recomendation">
-                            <div class="crop">
-                        <img src="../resources/images/amazebowl_profile.png" alt="icon">
-                            </div>
-                            <div class="vendor-info">
-                            <div class="vendor-name small-title green">Amazebowls</div>
-                            <div class="vendor-distance">0.4 miles</div>
-                            <div class="vendor-rating">Rating here</div>
-                            </div>
-                    </div>
-                </a>
-                <a href="vendorpage.html">
-                <div class="recomendation">
-                        <div class="crop">
+                <tr class="recomendation">
+                        <td class="crop">
                     <img src="../resources/images/Armandos.jpg" alt="icon">
-                        </div>
-                    <div class="vendor-info">
+                        </td>
+                    <td class="vendor-info">
                         <div class="vendor-name small-title green">Armando's</div>
                         <div class="vendor-distance">0.05 miles</div>
                         <div class="vendor-rating">Rating here</div>
-                    </div>
-                </div>
+                    </dt>
+                </tr>
             </a>
                 <a href="vendorpage.html">
-                <div class="recomendation">
-                    <div class="crop">
+                <tr class="recomendation">
+                    <td class="crop">
                     <img src="../resources/images/pink-taco.jpg" alt="icon">
-                    </div>
-                    <div class="vendor-info">
+                    </td>
+                    <td class="vendor-info">
                         <div class="vendor-name small-title green">Pink Taco</div>
                         <div class="vendor-distance">0.7 miles</div>
                         <div class="vendor-rating">Rating here</div>
-                    </div>
-                </div>
+                    </td>
+                </tr>
             </a>
                 <a href="vendorpage.html">
-                <div class="recomendation">
-                        <div class="crop">
+                <tr class="recomendation">
+                        <td class="crop">
                     <img src="../resources/images/kogi.png" alt="icon">
-                    </div>
-                    <div class="vendor-info">
+                        </td>
+                    <td class="vendor-info">
                         <div class="vendor-name small-title green">Kogi</div>
                         <div class="vendor-distance">0.8 miles</div>
                         <div class="vendor-rating">Rating here</div>
-                    </div>
-                </div>
+                    </td>
+                </tr>
             </a>
                 <a href="vendorpage.html">
-                <div class="recomendation">
-                        <div class="crop">
+                <tr class="recomendation">
+                        <td class="crop">
                     <img src="../resources/images/chato.jpg" alt="icon">
-                    </div>
-                    <div class="vendor-info">
+                        </td>
+                    <td class="vendor-info">
                         <div class="vendor-name small-title green">El Chato Taco</div>
                         <div class="vendor-distance">1.5 miles</div>
                         <div class="vendor-rating">Rating here</div>
-                    </div>
+                    </td>
                 </div>
                 </a>
-            </div>
+            </table>
         </div>
     </div>
     </body>
