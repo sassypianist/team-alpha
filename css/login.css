@@ -68,6 +68,7 @@ input, textarea, select, button {
 #login h3 {
 	font-size: 24pt;
 	font-family: AvenirNextBold;
+	color: #33ABAB;
 }
 
 #login label {

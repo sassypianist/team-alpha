@@ -1,11 +1,11 @@
 <?php
+
 session_start();
 
 $host = "460.itpwebdev.com";
 $username = "alpha_admin";
 $pass = "alpha2019";
 $db = "alpha_vendas_db";
-$tbl_name = "user";
 
 $mysqli = new mysqli($host, $username, $pass, $db);
 
@@ -21,28 +21,35 @@ if ( !isset($_SESSION['logged_in']) || !$_SESSION['logged_in'] ) {
 	if ( isset($_POST['email']) && isset($_POST['password']) ) {
 		// Form was submitted
 
+		$email = $_POST['email'];
 
-		$con = mysqli_connect($host, $username, $pass, $db);
+		$password = $_POST['password'];
 
-		$email = $_POST['email']; 
-		$password = $_POST['password']; 
+		$sql = "SELECT password
+  				FROM user
+  				WHERE email = '" . $email . "';";
 
-		$result = mysqli_query($con, "SELECT * FROM $tbl_name WHERE email = '$email' and password = '$password'");
-		$count = mysqli_num_rows($result); 
+
+  		$results = $mysqli->query($sql);
+
+		if ( $results == false) {
+			echo $mysqli->error;
+			exit();
+		}
+
+		$row = $results->fetch_assoc();
+
 
 		if ( empty($_POST['email']) || empty($_POST['password']) ) {
 			// Missing username or password.
 			$error = "Please enter email and password.";
 		} 
-		elseif ( $count == 1 ) {
+
+		elseif ( $row['password'] == $password ) {
 			// Valid credentials. Log in the user.
 			$_SESSION['logged_in'] = true;
-			$_SESSION['email'] = $email; 
-    		$_SESSION['password'] = $password; 
-    		// get the result set from the query
-    		$result = mysqli_fetch_array($result); 
-    		
-			header('Location: ../pages/userprofile.php');
+			$_SESSION['email'] = $_POST['email'];
+			header("Refresh:0");
 		} 
 		else {
 			// Invalid credentials.
@@ -53,7 +60,7 @@ if ( !isset($_SESSION['logged_in']) || !$_SESSION['logged_in'] ) {
 
 else {
 
-	header('Location: /pages/search.php');
+	header('Location: ../pages/search.php');
 }
 
 
@@ -66,7 +73,6 @@ else {
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="../css/discover.css">
-         <link rel="stylesheet" href="../css/main.css">
         <link rel="stylesheet" href="../css/login.css">
 	<title>Login</title>
 </head>
@@ -76,7 +82,7 @@ else {
 				<div id="menu-links">
 					<a href="search.php">Search Vendors</a>
 					<a href="discover_page.php">Discover</a>
-					<a href="userprofile.php">Your Favorites</a>
+					<a href="userprofile.php?email=<?php echo $_POST['email']; ?>">Your Favorites</a>
 					<?php include 'nav.php'; ?>
 				</div>
 	</div>
@@ -102,12 +108,17 @@ else {
 						<input name="email" type="text" placeholder="email"> <br />
 
 						<label for="password">Password:</label>
-						<input name="password" type="text" placeholder="password"> <br />
+						<input name="password" type="password" placeholder="password"> <br />
 						
 						<button type="submit" id="submit" value="login">Login</button>
 					</form>
 
 					<a href="register_page.php" id="register_redirect">Don't have an account? Click here to register.</a>
+					<?php
+						if ( isset($error) && !empty($error) ) {
+							echo $error;
+						}
+					?>
 			</div>
 
 

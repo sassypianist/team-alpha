@@ -1,3 +1,7 @@
+<?php
+session_start();
+
+?>
 <!-- This is just a file to get the pages folder into the github -->
 
 <!DOCTYPE html>
@@ -25,7 +29,7 @@
             <div id="menu-links">
                 <a href="search.php">Search Vendors</a>
                 <a href="discover_page.php">Discover</a>
-                <a href="userprofile.php">Your Favorites</a>
+                <a href="userprofile.php?user_id=<?php echo $_POST['user_id']; ?>">Your Favorites</a>
                 <?php include 'nav.php'; ?>
             </div>
         </div>

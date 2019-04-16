@@ -1,4 +1,4 @@
-<?php if ( !isset($_SESSION['logged_in']) ) : ?>
+<?php if ( !isset($_SESSION['logged_in']) || !$_SESSION['logged_in']) : ?>
 		<a href="login_page.php">Login</a>
 
 		
