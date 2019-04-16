@@ -16,7 +16,7 @@ if ($mysqli->connect_errno) {
 	exit();
 } 
 
-$sql = "SELECT DISTINCT user.user_pic AS pic, user.user_name AS name, truck.truck_name AS truck, reviews.review AS review, truck.truck_rating AS truck_rating
+$sql = "SELECT DISTINCT user.user_pic AS pic, user.user_name AS name, truck.truck_name AS truck, reviews.review AS review, truck.truck_rating AS truck_rating, truck.location AS location
 		FROM reviews
 		LEFT JOIN user
 			ON reviews.user_id = user.user_id
@@ -87,7 +87,7 @@ $mysqli->close();
 								<td>
 								
 									<br>
-									<button><a href="">Locate</a></button>
+									<button><a href="<?php echo $row['location']; ?>">Locate</a></button>
 								</td>
 								<td class="review stars">
 									<p>"<?php echo $row['review']; ?>"</p>

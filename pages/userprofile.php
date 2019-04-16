@@ -21,7 +21,7 @@ if ( !isset($_SESSION['email']) || empty($_SESSION['email']) ) {
 
 
 	
-$sql = "SELECT user.user_name AS name, user.user_pic AS user_pic, reviews.review AS review, reviews.rating AS rating, truck.truck_name AS truck
+$sql = "SELECT user.user_name AS name, user.user_pic AS user_pic, reviews.review AS review, reviews.rating AS rating, truck.truck_name AS truck, truck.truck_img AS truck_pic
 		FROM reviews
 		LEFT JOIN user
 			ON reviews.user_id = user.user_id
@@ -111,65 +111,76 @@ $sql = "SELECT user.user_name AS name, user.user_pic AS user_pic, reviews.review
 			<div id="reviews">
 				<h1>My Reviews</h1>
 
-				<div class="review">
-					<div class="identity">
-						<img class="profile-pic" src="../resources/images/amazebowl_profile.png">
-						<p>Amazebowls</p>
-						<div class="stars" id="fivestars">
-							<span></span>
-							<span></span>
-							<span></span>
-							<span></span>
-							<span></span>
-						</div>
-					</div>
+				<table cellspacing="0">
+					<tbody>
 
-					<div class="user-review">
-						<p>It was great! I loved it!</p>
-					<div class="clearfloat"></div>
-						
-					</div>
-				</div>
+						<?php while ($row = $results->fetch_assoc() ): ?>
+							<tr>
+								<td class="stars">
+									<img src="<?php echo $row['truck_pic']; ?>" class="img">
+									<p><?php echo $row['truck']; ?></p>
+									<div class="span">
+										<span></span>
+										<span class="<?php
+												$value = strval($row['truck_rating']);
 
-				<div class="review">
-					<div class="identity">
-						<img class="profile-pic" src="../resources/images/taco_profile.png">
-						<p>El Chato Taco</p>
-						<div class="stars">
-							<span></span>
-							<span></span>
-							<span></span>
-							<span></span>
-							<span></span>
-						</div>
-					</div>
+												if ($value == '1star') {
+													echo $value;
+												}
 
-					<div class="user-review">
-						<p>Best tacos I ever had.</p>
-					<div class="clearfloat"></div>
-						
-					</div>
-				</div>
+												else {
 
-				<div class="review">
-					<div class="identity">
-						<img class="profile-pic" src="../resources/images/kogi_profile.jpg">
-						<p>Kogi Food Truck</p>
-						<div class="stars" id="threestars">
-							<span></span>
-							<span></span>
-							<span></span>
-							<span></span>
-							<span></span>
-						</div>
-					</div>
+												}
+											?>star">
+										</span>
+										<span class="<?php
+												$value = strval($row['truck_rating']);
 
-					<div class="user-review">
-						<p>It was okay for a food truck.</p>
-					<div class="clearfloat"></div>
-						
-					</div>
-				</div>
+												if ($value == '2star' || $value == '1star') {
+													echo $value;
+												}
+
+												else {
+											
+												}
+											?>star">
+										</span>
+										<span class="<?php
+												$value = strval($row['truck_rating']);
+
+												if ($value == '3star' || $value == '2star' || $value == '1star') {
+													echo $value;
+												}
+
+												else {
+											
+												}
+											?>star">
+										</span>
+										<span class="<?php
+												$value = strval($row['truck_rating']);
+
+												if ($value == '4star' || $value == '3star' || $value == '2star' || $value == '1star') {
+													echo $value;
+												}
+
+												else {
+											
+												}
+											?>star">
+										</span>
+									</div>
+								</td>
+
+								<td>
+									<?php echo $row['review']; ?>
+								</td>
+
+							</tr>
+						<?php endwhile; ?>	
+
+					</tbody>
+				</table>
 
 			</div>
 		</div>
