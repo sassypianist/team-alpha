@@ -1,5 +1,40 @@
 <?php
 session_start();
+$host = "460.itpwebdev.com";
+$username = "alpha_admin";
+$password = "alpha2019";
+$db = "alpha_vendas_db";
+
+
+$page_url = preg_replace('/&page=\d*/', '', $_SERVER['REQUEST_URI']);
+$results_per_page = 3;
+
+$mysqli = new mysqli($host, $username, $password, $db);
+
+if ($mysqli->connect_errno) {
+	echo $mysqli->connect_error;
+	exit();
+} 
+
+$sql = "SELECT DISTINCT user.user_pic AS pic, user.user_name AS name, truck.truck_name AS truck, reviews.review AS review, truck.truck_rating AS truck_rating
+		FROM reviews
+		LEFT JOIN user
+			ON reviews.user_id = user.user_id
+		LEFT JOIN truck
+			ON reviews.truck_id = truck.truck_id
+		WHERE user.email != '" . $_SESSION['email'] . "'
+		ORDER BY RAND()
+		LIMIT 3;";
+
+$results = $mysqli->query($sql);
+
+if ( $results == false ) {
+	echo $mysqli->error;
+	exit();
+}
+
+
+$mysqli->close();
 
 ?>
 <!DOCTYPE html>
@@ -10,8 +45,8 @@ session_start();
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="../css/discover.css">
+        <link rel="stylesheet" href="../css/table.css">
 	<title>Discover Nearby Eats</title>
-	<script data-cfasync="false" charset="utf-8" > ;(function (g) { g.aurycReadyCb = g.aurycReadyCb || []; var d = document, i, am = d.createElement("script"), h = d.head || d.getElementsByTagName("head")[0],aex = { "src": "//cdn-dev.userty.com/980-usc-sandbox1com/container.js", "data-cfasync": "false", "async": "true", "defer": "true", "data-vendor": "userty", "data-role": "container", "charset": "utf-8" }; for (var attr in aex) { am.setAttribute(attr,aex[attr]); } h.appendChild(am); })(window); </script>
 </head>
 <body>
 	<div id="menu">
@@ -19,7 +54,7 @@ session_start();
 				<div id="menu-links">
 					<a href="search.php">Search Vendors</a>
 					<a href="discover_page.php">Discover</a>
-					<a href="userprofile.php?user_id=<?php echo $_POST['user_id']; ?>">Your Favorites</a>
+					<a href="userprofile.php">Your Favorites</a>
 					<?php include 'nav.php'; ?>
 				</div>
 	</div>
@@ -38,90 +73,88 @@ session_start();
 			</div>
 
 			<div id="discover">
-				<div class="recommendation" id="kogi">
-					<div class="recommendation-header">
-						<h1>Kogi Taco Truck</h1>
-						<button><a href="https://goo.gl/maps/uREnVdpHqUJ2">Locate</a></button>
-					</div>
+				<table cellspacing="0">
+					<tbody>
 
-					<div class="recommendation-content">
-						<div class="profile">
-							<img src="../resources/images/rory.jpg" class="img">
-							<p>Rory Mahler</p>
-							<div class="stars">
-								<span></span>
-								<span></span>
-								<span></span>
-								<span></span>
-								<span></span>
-							</div>
-						</div>
-						<div class="review">
-							<p>"So happy this truck was at Conquest -- the bulgogi tacos were the best! Hope to find this truck around LA soon."</p>
-						</div>
-						<div class="bookmark"><img src="../resources/images/save.png" id="save_button1" class="unchecked"></div>
-					</div>
+						<?php while ($row = $results->fetch_assoc() ): ?>
+							<tr>
+								<td><h1><?php echo $row['truck']; ?></h1></td>
+								<td>
+									<img src="<?php echo $row['pic']; ?>" class="img">
+									<p><?php echo $row['name']; ?></p>
+								</td>
 
-					<div class="clearfloat"></div>
-				</div>
+								<td>
+								
+									<br>
+									<button><a href="">Locate</a></button>
+								</td>
+								<td class="review stars">
+									<p>"<?php echo $row['review']; ?>"</p>
+									
+									<div id="span">
+										<span></span>
+										<span class="<?php
+												$value = strval($row['truck_rating']);
 
+												if ($value == '1star') {
+													echo $value;
+												}
 
+												else {
 
-				<div class="recommendation" id="prince">
-					<div class="recommendation-header">
-						<h1>Prince of Venice</h1>
-						<button><a href="https://goo.gl/maps/eivGCfZVDew">Locate</a></button>
-					</div>
+												}
+											?>star">
+										</span>
+										<span class="<?php
+												$value = strval($row['truck_rating']);
 
-					<div class="recommendation-content">
-						<div class="profile">
-							<img src="../resources/images/ezra.jpg" class="img">
-							<p>Ezra Koenig</p>
-							<div class="stars" id="threestars">
-								<span></span>
-								<span></span>
-								<span></span>
-								<span></span>
-								<span></span>
-							</div>
-						</div>
-						<div class="review">
-							<p>"For a vendor with the audacity to to call themselves Prince of Venice, I expected royal perfection -- and it was close to it, I got Pasta alla Pollo and Curry from a truck. I just wish the prices weren't royally as grand."</p>
-						</div>
-						<div class="bookmark"><img src="../resources/images/save.png" id="save_button2" class="unchecked"></div>
-					</div>
+												if ($value == '2star' || $value == '1star') {
+													echo $value;
+												}
 
-					<div class="clearfloat"></div>
-				</div>
+												else {
+											
+												}
+											?>star">
+										</span>
+										<span class="<?php
+												$value = strval($row['truck_rating']);
 
+												if ($value == '3star' || $value == '2star' || $value == '1star') {
+													echo $value;
+												}
 
+												else {
+											
+												}
+											?>star">
+										</span>
+										<span class="<?php
+												$value = strval($row['truck_rating']);
 
-				<div class="recommendation" id="nomad">
-					<div class="recommendation-header">
-						<h1>The Hungry Nomad</h1>
-						<button><a href="https://goo.gl/maps/QDQerA4voBs">Locate</a></button>
-					</div>
+												if ($value == '4star' || $value == '3star' || $value == '2star' || $value == '1star') {
+													echo $value;
+												}
 
-					<div class="recommendation-content">
-						<div class="profile">
-							<img src="../resources/images/amaka.jpg" class="img">
-							<p>Amaka Oneheh</p>
-							<div class="stars">
-								<span></span>
-								<span></span>
-								<span></span>
-								<span></span>
-								<span></span>
-							</div>
-						</div>
-						<div class="review">
-							<p>"A solid lunch option -- they offer a variety of different cuisines, so you can order whatever you feel like! The only issue is that it takes awhile -- so make sure you get there as early as possible!"</p>
-						</div>
-						<div class="bookmark"><img src="../resources/images/save.png" id="save_button3" class="unchecked"></div>
-					</div>
+												else {
+											
+												}
+											?>star">
+										</span>
+									</div>
 
-					<div class="clearfloat"></div>
-				</div>
+									<div class="bookmark">
+										<img src="../resources/images/save.png" id="save_button1" class="unchecked">
+									</div>
+								</td>
+							</tr>
+						<?php endwhile; ?>	
+
+					</tbody>
+				</table>
+				
+				<div class="clearfloat"></div>
 
 			</div>
 		</div>
@@ -129,50 +162,50 @@ session_start();
 </body>
 
 <script>
-	document.getElementById("save_button1").onclick = function() {
+	// document.getElementById("save_button1").onclick = function() {
 
-		if (document.querySelector("#save_button1").classList.contains('unchecked')) {
-			console.log("if passed");
+	// 	if (document.querySelector("#save_button1").classList.contains('unchecked')) {
+	// 		console.log("if passed");
 
-			document.getElementById("save_button1").src = "../resources/images/selected.png";
-			document.querySelector("#save_button1").classList.remove("unchecked");
-   		}
-   		else {
-   			document.getElementById("save_button1").src = "../resources/images/save.png";
-   			document.querySelector("#save_button1").classList.add("unchecked");
-    	}
+	// 		document.getElementById("save_button1").src = "../resources/images/selected.png";
+	// 		document.querySelector("#save_button1").classList.remove("unchecked");
+ //   		}
+ //   		else {
+ //   			document.getElementById("save_button1").src = "../resources/images/save.png";
+ //   			document.querySelector("#save_button1").classList.add("unchecked");
+ //    	}
 
-	}
+	// }
 
-	document.getElementById("save_button2").onclick = function() {
+	// document.getElementById("save_button2").onclick = function() {
 
-		if (document.querySelector("#save_button2").classList.contains('unchecked')) {
-			console.log("if passed");
+	// 	if (document.querySelector("#save_button2").classList.contains('unchecked')) {
+	// 		console.log("if passed");
 
-			document.getElementById("save_button2").src = "../resources/images/selected.png";
-			document.querySelector("#save_button2").classList.remove("unchecked");
-   		}
-   		else {
-   			document.getElementById("save_button2").src = "../resources/images/save.png";
-   			document.querySelector("#save_button2").classList.add("unchecked");
-    	}
+	// 		document.getElementById("save_button2").src = "../resources/images/selected.png";
+	// 		document.querySelector("#save_button2").classList.remove("unchecked");
+ //   		}
+ //   		else {
+ //   			document.getElementById("save_button2").src = "../resources/images/save.png";
+ //   			document.querySelector("#save_button2").classList.add("unchecked");
+ //    	}
 
-	}
+	// }
 
-	document.getElementById("save_button3").onclick = function() {
+	// document.getElementById("save_button3").onclick = function() {
 
-		if (document.querySelector("#save_button3").classList.contains('unchecked')) {
-			console.log("if passed");
+	// 	if (document.querySelector("#save_button3").classList.contains('unchecked')) {
+	// 		console.log("if passed");
 
-			document.getElementById("save_button3").src = "../resources/images/selected.png";
-			document.querySelector("#save_button3").classList.remove("unchecked");
-   		}
-   		else {
-   			document.getElementById("save_button3").src = "../resources/images/save.png";
-   			document.querySelector("#save_button3").classList.add("unchecked");
-    	}
+	// 		document.getElementById("save_button3").src = "../resources/images/selected.png";
+	// 		document.querySelector("#save_button3").classList.remove("unchecked");
+ //   		}
+ //   		else {
+ //   			document.getElementById("save_button3").src = "../resources/images/save.png";
+ //   			document.querySelector("#save_button3").classList.add("unchecked");
+ //    	}
 
-	}
+	// }
 
     document.querySelector(".nav-bar").onclick = function() {
     	document.getElementById("menu").style.transform = "translate(290px, 0px)";

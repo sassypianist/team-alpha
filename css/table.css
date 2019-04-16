@@ -1,0 +1,127 @@
+.header {
+  background-color: #327a81;
+  color: white;
+  font-size: 1.5em;
+  padding: 1rem;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+table {
+  width: 100%;
+  background-color: #FAFAFA;
+  margin-bottom: 15px;
+}
+
+table td, table th {
+  color: #2b686e;
+  padding: 10px;
+}
+table td {
+  vertical-align: middle;
+  float: left;
+  padding: 20px;
+}
+table td:last-child {
+  font-size: 0.95em;
+  line-height: 1.4;
+}
+
+table, tr, td {
+    display: block;
+}
+
+td:first-child {
+
+    text-align: center;
+    color: white;
+    background-color: gray;
+    height: 150px;
+    margin-top: 30px;
+    width: 100%;
+    box-sizing: border-box;
+    line-height: 110px;
+    text-align: center;
+}
+
+td:first-child h1 {
+  font-size: 22pt;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+td:nth-child(2) {
+  width: 50%;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+td:nth-child(3) {
+  text-align: center;
+  width: 50%;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+td:nth-child(4) {
+  color: black;
+  width: 100%;
+  box-sizing: border-box;
+  text-align: center;
+  padding: 10px;
+}
+
+td:last-child {
+  margin-bottom: 30px;
+}
+
+
+td p {
+  margin: 0;
+  color: #33ABAB;
+}
+
+td span {
+  margin: 25px 0 10px 0;
+}
+
+td button {
+  
+  width: 100%;
+  border: none;
+  border-radius: 25px;
+  background-color: #33ABAB;
+  color: white;
+  text-align: center;
+  padding: 10px;
+}
+
+td button a {
+  font-size: 14pt;
+  color: white;
+  text-decoration: none;
+}
+
+
+.stars span {
+  background: #F8E71C;
+  height: 12px;
+  width: 12px;  
+  display: inline-block;
+  border-radius: 12px;
+}
+
+[class="2star"] {
+    background: #202020;
+    opacity: 0.2;
+}
+
+[class="3star"] {
+    background: #202020;
+    opacity: 0.2;
+}
+
+[class="4star"] {
+    background: #202020;
+    opacity: 0.2;
+}

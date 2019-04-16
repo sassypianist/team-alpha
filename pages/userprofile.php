@@ -1,9 +1,7 @@
 <?php
 session_start();
 
-echo $_POST['email'];
-
-if ( !isset($_POST['email']) || empty($_POST['email']) ) {
+if ( !isset($_SESSION['email']) || empty($_SESSION['email']) ) {
 	$error = "User does not exist";
 } else {
 
@@ -23,22 +21,22 @@ if ( !isset($_POST['email']) || empty($_POST['email']) ) {
 
 
 	
-$sql = "SELECT user.user_name AS name, user.user_pic AS user_pic, reviews.review AS review, review.rating AS rating, truck.truck_name AS truck
+$sql = "SELECT user.user_name AS name, user.user_pic AS user_pic, reviews.review AS review, reviews.rating AS rating, truck.truck_name AS truck
 		FROM reviews
 		LEFT JOIN user
 			ON reviews.user_id = user.user_id
 		LEFT JOIN truck
 			ON reviews.truck_id = truck.truck_id
-		WHERE user.user_id = " . $_POST['user_id'] . ";";
+		WHERE user.email = '" . $_SESSION['email'] . "';";
 
 	$results = $mysqli->query($sql);
-	if ( !$results ) {
+
+	if ( $results == false) {
 		echo $mysqli->error;
 		exit();
 	}
 
 	$row = $results->fetch_assoc();
-	echo $row;
 
 	$mysqli->close();
 
@@ -62,7 +60,7 @@ $sql = "SELECT user.user_name AS name, user.user_pic AS user_pic, reviews.review
 		<div id="menu-links">
 			<a href="search.php">Search Vendors</a>
 			<a href="discover_page.php">Discover</a>
-			<a href="userprofile.php<?php echo $_POST['user_id']; ?>">Your Favorites</a>
+			<a href="userprofile.php">Your Favorites</a>
 			<?php include 'nav.php'; ?>
 		</div>
 	</div>
@@ -74,7 +72,6 @@ $sql = "SELECT user.user_name AS name, user.user_pic AS user_pic, reviews.review
 					<img class="nav-bar toggle-button" src="../resources/images/white_hamburger.png">
 					<img src="<?php echo $row['user_pic']; ?>" id="user_pic">
 					<h1><?php echo $row['name']; ?></h1>
-					<?php echo $error; ?>
 					<p>Los Angeles, CA</p>
 				</div>
 			</div>
