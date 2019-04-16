@@ -1,14 +1,14 @@
 <?php
 session_start();
 
-if ( !isset($_GET['truck_id']) || empty($_GET['truck_id']) ) {
-    $error = "No truck information.";
-} else {
 
     $host = "460.itpwebdev.com";
     $user = "alpha_admin";
     $pass = "alpha2019";
     $db = "alpha_vendas_db";
+
+    $page_url = preg_replace('/&page=\d*/', '', $_SERVER['REQUEST_URI']);
+    $results_per_page = 10;
 
 // DB Connection
     $mysqli = new mysqli($host, $user, $pass, $db);
@@ -20,14 +20,21 @@ if ( !isset($_GET['truck_id']) || empty($_GET['truck_id']) ) {
     $mysqli->set_charset('utf8');
 
 
+    if ( !isset($_GET['truck_id']) || empty($_GET['truck_id']) ) {
+        $error = "No truck information.";
+    } else {
+
+
     
-$sql = "SELECT truck.truck_img AS truck_img, truck.truck_name AS truck_name, truck.open_time AS open, truck.close_time AS close, truck.background AS background, truck.phone_number AS phone_number, reviews.review AS review, user.user_name AS user, reviews.rating AS user_rating, user.user_pic AS user_pic
+    $sql = "SELECT truck.truck_img AS truck_img, truck.truck_name AS truck_name, truck.open_time AS open, truck.close_time AS close, truck.background AS background, truck.phone_number AS phone_number, reviews.review AS review, user.user_name AS user, reviews.rating AS user_rating, user.user_pic AS user_pic
         FROM reviews
         LEFT JOIN truck
             ON reviews.truck_id = truck.truck_id
         LEFT JOIN user
             ON reviews.user_id = user.user_id            
-        WHERE truck.truck_id = " . $_GET['truck_id'] . ";";
+        WHERE truck.truck_id = " . $_GET['truck_id'] . "
+        ORDER BY RAND() 
+        LIMIT 10;";
 
     $results = $mysqli->query($sql);
     
@@ -42,6 +49,7 @@ $sql = "SELECT truck.truck_img AS truck_img, truck.truck_name AS truck_name, tru
 
 }
 
+
 ?>
 <!-- This is just a file to get the pages folder into the github -->
 
@@ -55,7 +63,7 @@ $sql = "SELECT truck.truck_img AS truck_img, truck.truck_name AS truck_name, tru
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="../css/vendorpage.css">
         <link rel="stylesheet" href="../css/vendas-style.css">
-        <link rel="stylesheet" href="../css/table.css">
+        <link rel="stylesheet" href="../css/vendor_table.css">
         <script
 			  src="https://code.jquery.com/jquery-3.3.1.min.js"
 			  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
@@ -119,7 +127,7 @@ $sql = "SELECT truck.truck_img AS truck_img, truck.truck_name AS truck_name, tru
                             </div>
                         </div>
                         <div class="stars">
-                            <div class="span">
+                            <div class="">
                                         <span></span>
                                         <span class="<?php
                                                 $value = strval($row['truck_rating']);
@@ -184,20 +192,86 @@ $sql = "SELECT truck.truck_img AS truck_img, truck.truck_name AS truck_name, tru
                         <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d6613.60346734081!2d-118.28507594472043!3d34.02329984701048!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sus!4v1550959928965" frameborder="0" style="border:0" allowfullscreen></iframe>
                     </div>
                 </div>
+
+
+
+
                 <div id="reviews-wrapper">
                     <h2 class="medium-title green">Reviews</h2>
-                    <div class="review-wrapper">
-                        <div class="review-left">
+
+
+                    <table class="">
+                    <tbody>
+                        <?php while ($row = $results->fetch_assoc() ): ?>
+                        <?php echo $row['review'];?><tr>
+
+                        <td class="">
                             <div class="profile_photo">
                                 <img src="<?php echo $row['user_pic']; ?>">
                             </div>
-                            <div class="profile-name"><?php echo $row[user_name];?></div>
-                            <div class="rating"></div>
-                        </div>
-                        <div class="rating_text">
-                            <p>It was great! I loved it.</p>
-                        </div>
-                    </div>
+                            <div class=""><?php echo $row['user'];?></div>
+                            <div class="stars">
+                                        <span></span>
+                                        <span class="<?php
+                                                $value = strval($row['truck_rating']);
+
+                                                if ($value == '1star') {
+                                                    echo $value;
+                                                }
+
+                                                else {
+
+                                                }
+                                            ?>star">
+                                        </span>
+                                        <span class="<?php
+                                                $value = strval($row['truck_rating']);
+
+                                                if ($value == '2star' || $value == '1star') {
+                                                    echo $value;
+                                                }
+
+                                                else {
+                                            
+                                                }
+                                            ?>star">
+                                        </span>
+                                        <span class="<?php
+                                                $value = strval($row['truck_rating']);
+
+                                                if ($value == '3star' || $value == '2star' || $value == '1star') {
+                                                    echo $value;
+                                                }
+
+                                                else {
+                                            
+                                                }
+                                            ?>star">
+                                        </span>
+                                        <span class="<?php
+                                                $value = strval($row['truck_rating']);
+
+                                                if ($value == '4star' || $value == '3star' || $value == '2star' || $value == '1star') {
+                                                    echo $value;
+                                                }
+
+                                                else {
+                                            
+                                                }
+                                            ?>star">
+                                        </span>
+                            </div>
+                        </td>
+                        <td>
+                            <p><?php echo $row['review']; ?></p>
+                        </td>
+
+                        </tr>   
+                        <?php endwhile; ?>  
+                    </tbody>
+                    </table>
+
+
                     
                 </div>
             </div>

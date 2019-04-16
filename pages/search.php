@@ -1,5 +1,5 @@
 <?php
-
+    session_start();
     $host = "460.itpwebdev.com";
     $user = "alpha_admin";
     $pass = "alpha2019";
@@ -60,6 +60,7 @@
                 <a href="search.php">Search Vendors</a>
                 <a href="discover_page.php">Discover</a>
                 <a href="userprofile.php">Your Favorites</a>
+                <?php include 'nav.php'; ?>
             </div>
         </div>
         <div id="container">

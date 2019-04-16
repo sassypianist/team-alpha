@@ -16,7 +16,18 @@ if ($mysqli->connect_errno) {
 	exit();
 } 
 
-$sql = "SELECT DISTINCT user.user_pic AS pic, user.user_name AS name, truck.truck_name AS truck, reviews.review AS review, truck.truck_rating AS truck_rating, truck.location AS location
+if ( !isset($_SESSION['email']) || empty($_SESSION['email']) ) {
+	$sql = "SELECT DISTINCT user.user_pic AS pic, user.user_name AS name, truck.truck_name AS truck, reviews.review AS review, truck.truck_rating AS truck_rating, truck.location AS location
+		FROM reviews
+		LEFT JOIN user
+			ON reviews.user_id = user.user_id
+		LEFT JOIN truck
+			ON reviews.truck_id = truck.truck_id
+		ORDER BY RAND()
+		LIMIT 3;";
+} else {
+
+	$sql = "SELECT DISTINCT user.user_pic AS pic, user.user_name AS name, truck.truck_name AS truck, reviews.review AS review, truck.truck_rating AS truck_rating, truck.location AS location
 		FROM reviews
 		LEFT JOIN user
 			ON reviews.user_id = user.user_id
@@ -25,6 +36,7 @@ $sql = "SELECT DISTINCT user.user_pic AS pic, user.user_name AS name, truck.truc
 		WHERE user.email != '" . $_SESSION['email'] . "'
 		ORDER BY RAND()
 		LIMIT 3;";
+}
 
 $results = $mysqli->query($sql);
 
@@ -144,9 +156,9 @@ $mysqli->close();
 										</span>
 									</div>
 
-									<div class="bookmark">
+									<!-- <div class="bookmark">
 										<img src="../resources/images/save.png" id="save_button1" class="unchecked">
-									</div>
+									</div> -->
 								</td>
 							</tr>
 						<?php endwhile; ?>	

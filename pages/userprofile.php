@@ -2,7 +2,7 @@
 session_start();
 
 if ( !isset($_SESSION['email']) || empty($_SESSION['email']) ) {
-	$error = "User does not exist";
+	$error = "Please login to continue.";
 } else {
 
 	$host = "460.itpwebdev.com";
@@ -66,10 +66,21 @@ $sql = "SELECT user.user_name AS name, user.user_pic AS user_pic, reviews.review
 	</div>
 	<div id="container">
 
+
+   		
 		<div id="panel">
 			<div id="top">
 				<div id="profile-header">
 					<img class="nav-bar toggle-button" src="../resources/images/white_hamburger.png">
+
+					<?php if ( isset($error) && !empty($error) ) : ?>
+					
+			        <div id="error">
+			            <p><?php echo $error; ?></p>
+			        </div>
+					
+					<?php else : ?>
+
 					<img src="<?php echo $row['user_pic']; ?>" id="user_pic">
 					<h1><?php echo $row['name']; ?></h1>
 					<p>Los Angeles, CA</p>
@@ -184,6 +195,7 @@ $sql = "SELECT user.user_name AS name, user.user_pic AS user_pic, reviews.review
 
 			</div>
 		</div>
+		<?php endif; ?>
 	</div>
 </body>
 <script>

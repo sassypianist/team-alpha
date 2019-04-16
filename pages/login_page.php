@@ -49,7 +49,7 @@ if ( !isset($_SESSION['logged_in']) || !$_SESSION['logged_in'] ) {
 			// Valid credentials. Log in the user.
 			$_SESSION['logged_in'] = true;
 			$_SESSION['email'] = $_POST['email'];
-			header("Refresh:0");
+			header('Location: ../pages/userprofile.php');
 		} 
 		else {
 			// Invalid credentials.
