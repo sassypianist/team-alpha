@@ -11,7 +11,7 @@
             exit();
         }
 
-    $sql = "SELECT truck.truck_name AS name, truck.truck_id AS truck_id
+    $sql = "SELECT truck.truck_name AS truck_name, truck.truck_rating AS truck_rating, truck.truck_img AS truck_img, truck.truck_distance AS truck_distance
             FROM truck
             WHERE 1=1";
 
@@ -74,8 +74,28 @@
                 <img src="../resources/images/logo.svg" alt="logo">
             </div>
         </div>
+        <div id="results-number" class="small-title green"><?php echo $results->num_rows; ?> results</div>
         <table id="searchrecomendations">
-                    <a href="vendorpage.html">
+                    
+            <?php
+
+                while($row = $results->fetch_assoc() ) : ?>
+                    <tr>
+                        <td class="crop">
+                            <img src="<?php echo $row['truck_img']; ?>">
+                        </td>
+                        <td class="vendor-info">
+                            <?php echo $row['truck_name']; ?>
+                            <br>
+                            <?php echo $row['truck_distance']; ?> miles
+                            <br>
+                            <?php echo $row['truck_rating']; ?> out of 5
+                        </td>
+                    </tr>
+                 <?php endwhile;?>
+
+
+<!--                     <a href="vendorpage.html">
                             <tr class="recomendation">
                                 <td class="crop">
                                     <img src="../resources/images/amazebowl_profile.png" alt="icon">
@@ -134,7 +154,7 @@
                         <div class="vendor-rating">Rating here</div>
                     </td>
                 </div>
-                </a>
+                </a> -->
             </table>
         </div>
     </div>
