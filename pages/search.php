@@ -74,21 +74,21 @@
             <div id="content">
                 <div id="search-wrapper">
                     <h1 class="green large-title">Find Street Vendors</h1>
-                    <div id="search-bar">
-                        <input type="text" id="truck-name" name="truck-name" placeholder="Search Vendors..."></input>
+                    <form action="searchresults.php" id="search-bar" method="GET">
+                        <input type="text" id="truck-name" name="truck_name" placeholder="Search Vendors..."></input>
                         <div id="search_submit">
                             <img id="search_submit_images" src="../resources/images/search-icon.png" alt="">
                         </div>
-                    </div>
+                    </form>
                     <div id="searchrecomendations">
                         <div class="recomendation">
                             <img src="../resources/images/pin-icon.png" alt="icon">
-                            <div class="recomendationName"><a href="../pages/vendorpage.html">Armando's</a></div>
+                            <div class="recomendationName"><a href="../pages/vendorpage.php">Armando's</a></div>
                             <div class="recomendationDistance">6 min</div>
                         </div>
                         <div class="recomendation">
                                 <img src="../resources/images/pin-icon.png" alt="icon">
-                                <div class="recomendationName"><a href="../pages/vendorpage.html">Amazebowls</a></div>
+                                <div class="recomendationName"><a href="../pages/vendorpage.php">Amazebowls</a></div>
                                 <div class="recomendationDistance">10 min</div>
                             </div>
                     </div>
