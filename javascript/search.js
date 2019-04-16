@@ -10,9 +10,4 @@ $(document).ready(function(){
         $("#menu").fadeOut(200);
     });
 
-    $("#search_submit_images").click(function(){
-       console.log("triggered");
-        window.location.replace("../pages/searchresults.html");
-    });
-
 });

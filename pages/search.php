@@ -1,7 +1,34 @@
 <?php
-session_start();
+
+    $host = "460.itpwebdev.com";
+    $user = "alpha_admin";
+    $pass = "alpha2019";
+    $db = "alpha_vendas_db";
+
+    $mysqli = new mysqli($host, $user, $pass, $db);
+        if ( $mysqli->connect_errno ) {
+            echo $mysqli->connect_error;
+            exit();
+        }
+
+    // Retrieve all DVD titles (and awards?) from the DB.
+    $sql_trucks = "SELECT * FROM truck;";
+
+    $results_trucks = $mysqli->query( $sql_trucks );
+
+    // Check for SQL Errors.
+    if ( !$results_trucks ) {
+        echo $mysqli->error;
+        $mysqli->close();
+        exit();
+    }
+
+
+    $mysqli->close();
 
 ?>
+
+
 <!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
@@ -33,7 +60,6 @@ session_start();
                 <a href="search.php">Search Vendors</a>
                 <a href="discover_page.php">Discover</a>
                 <a href="userprofile.php">Your Favorites</a>
-                <?php include 'nav.php'; ?>
             </div>
         </div>
         <div id="container">
@@ -48,21 +74,21 @@ session_start();
             <div id="content">
                 <div id="search-wrapper">
                     <h1 class="green large-title">Find Street Vendors</h1>
-                    <div id="search-bar">
-                        <input type="text" placeholder="Search Vendors..."></input>
+                    <form action="searchresults.php" id="search-bar" method="GET">
+                        <input type="text" id="truck-name" name="truck_name" placeholder="Search Vendors..."></input>
                         <div id="search_submit">
-                            <img id="search_submit_images" src="../resources/images/search-icon.png" alt="">
+                            <button type="submit"><img src="../resources/images/search-icon.png" alt=""></button>
                         </div>
-                    </div>
+                    </form>
                     <div id="searchrecomendations">
                         <div class="recomendation">
                             <img src="../resources/images/pin-icon.png" alt="icon">
-                            <div class="recomendationName"><a href="../pages/vendorpage.html">Armando's</a></div>
+                            <div class="recomendationName"><a href="../pages/vendorpage.php">Armando's</a></div>
                             <div class="recomendationDistance">6 min</div>
                         </div>
                         <div class="recomendation">
                                 <img src="../resources/images/pin-icon.png" alt="icon">
-                                <div class="recomendationName"><a href="../pages/vendorpage.html">Amazebowls</a></div>
+                                <div class="recomendationName"><a href="../pages/vendorpage.php">Amazebowls</a></div>
                                 <div class="recomendationDistance">10 min</div>
                             </div>
                     </div>

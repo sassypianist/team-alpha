@@ -1,7 +1,42 @@
 <?php
-session_start();
+    session_start();
+
+    $host = "460.itpwebdev.com";
+    $user = "alpha_admin";
+    $pass = "alpha2019";
+    $db = "alpha_vendas_db";
+
+    $mysqli = new mysqli($host, $user, $pass, $db);
+        if ( $mysqli->connect_errno ) {
+            echo $mysqli->connect_error;
+            exit();
+        }
+
+    $sql = "SELECT truck.truck_name AS name, truck.truck_id AS truck_id
+            FROM truck
+            WHERE 1=1";
+
+    if (isset($_GET['truck-name']) && !empty($_GET['truck-name'])) {
+        $truck_name = $_GET['truck-name'];
+        $sql = $sql . "AND truck-name LIKE '%truck_name%'";
+    }
+
+    $sql = $sql . ";";
+
+
+    $results = $mysqli->query($sql);
+
+    if ( !$results ) {
+        echo $mysqli->error;
+        $mysqli->close();
+        exit();
+    }   
+
+    $mysqli->close();
 
 ?>
+
+
 <!DOCTYPE html>
 
     <head>
@@ -13,6 +48,7 @@ session_start();
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="../css/searchresults.css">
         <link rel="stylesheet" href="../css/vendas-style.css">
+        <link rel="stylesheet" href="../css/table.css">
         <script
 			  src="https://code.jquery.com/jquery-3.3.1.min.js"
 			  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
@@ -29,7 +65,6 @@ session_start();
                         <a href="search.php">Search Vendors</a>
                         <a href="discover_page.php">Discover</a>
                         <a href="userprofile.php">Your Favorites</a>
-                        <?php include 'nav.php'; ?>
                     </div>
                 </div>
         <div id="container">
@@ -41,116 +76,24 @@ session_start();
                 <img src="../resources/images/logo.svg" alt="logo">
             </div>
         </div>
-        <div id="content">
-            
-            
-            <div id="search-wrapper">
-                <div id=search-bar>
-                    <input type="text" placeholder="Search Vendors...">
-                </div>
-            </div>
+        <div style="clear: both;"></div>
+        <div id="container-two">
             <div id="results-number" class="small-title green">6 results</div>
-            <div id="searchrecomendations">
-                    <a href="vendorpage.html">
-                            <div class="recomendation">
-                                    <div class="crop">
-                                <img src="../resources/images/amazebowl_profile.png" alt="icon">
-                                </div>
-                                <div class="vendor-info">
-                                    <div class="vendor-name small-title green">Amazebowls</div>
-                                    <div class="vendor-distance">0.4 miles</div>
-                                    <div class="vendor-rating">
-                                        <div class="stars">
-                                            <span></span>
-                                            <span></span>
-                                            <span></span>
-                                            <span></span>
-                                            <span></span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+            <div class="small-title green" id="results-number"><a href="search.php">Return to search</a></div>
+            <table id="searchrecomendations">
+                        <a href="vendorpage.php">
+                                <tr class="recomendation">
+                                    <td class="crop">
+                                        <img src="../resources/images/amazebowl_profile.png" alt="icon">
+                                    </td>
+                                    <td class="vendor-info">
+                                        <div class="vendor-name small-title green">Amazebowls</div>
+                                        <div class="vendor-distance">0.4 miles</div>
+                                        <div class="vendor-rating">Rating here</div>
+                                    </td>
+                                </tr>
                         </a>
-                <a href="vendorpage.html">
-                <div class="recomendation">
-                        <div class="crop">
-                    <img src="../resources/images/Armandos.jpg" alt="icon">
-                        </div>
-                    <div class="vendor-info">
-                        <div class="vendor-name small-title green">Armando's</div>
-                        <div class="vendor-distance">0.05 miles</div>
-                        <div class="vendor-rating">
-                            <div class="stars">
-                                <span></span>
-                                <span></span>
-                                <span></span>
-                                <span></span>
-                                <span></span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </a>
-                <a href="vendorpage.html">
-                <div class="recomendation">
-                    <div class="crop">
-                    <img src="../resources/images/pink-taco.jpg" alt="icon">
-                    </div>
-                    <div class="vendor-info">
-                        <div class="vendor-name small-title green">Pink Taco</div>
-                        <div class="vendor-distance">0.7 miles</div>
-                        <div class="vendor-rating">
-                            <div class="stars">
-                                <span></span>
-                                <span></span>
-                                <span></span>
-                                <span></span>
-                                <span></span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </a>
-                <a href="vendorpage.html">
-                <div class="recomendation">
-                        <div class="crop">
-                    <img src="../resources/images/kogi.png" alt="icon">
-                    </div>
-                    <div class="vendor-info">
-                        <div class="vendor-name small-title green">Kogi</div>
-                        <div class="vendor-distance">0.8 miles</div>
-                        <div class="vendor-rating">
-                            <div class="stars">
-                                <span></span>
-                                <span></span>
-                                <span></span>
-                                <span></span>
-                                <span></span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </a>
-                <a href="vendorpage.html">
-                <div class="recomendation">
-                        <div class="crop">
-                    <img src="../resources/images/chato.jpg" alt="icon">
-                    </div>
-                    <div class="vendor-info">
-                        <div class="vendor-name small-title green">El Chato Taco</div>
-                        <div class="vendor-distance">1.5 miles</div>
-                        <div class="vendor-rating">
-                            <div class="stars">
-                                <span></span>
-                                <span></span>
-                                <span></span>
-                                <span></span>
-                                <span></span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                </a>
+                </table>
             </div>
         </div>
     </div>

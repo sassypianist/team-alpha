@@ -125,3 +125,11 @@ td button a {
     background: #202020;
     opacity: 0.2;
 }
+
+#container-two {
+  margin: 30px;
+}
+
+#navbar {
+  height: auto;
+}
