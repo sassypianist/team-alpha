@@ -1,8 +1,9 @@
 <?php
+    session_start();
 
     $host = "460.itpwebdev.com";
-    $user = "alpha";
-    $pass = "uscItp460";
+    $user = "alpha_admin";
+    $pass = "alpha2019";
     $db = "alpha_vendas_db";
 
     $mysqli = new mysqli($host, $user, $pass, $db);
