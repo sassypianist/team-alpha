@@ -17,12 +17,14 @@
             FROM truck
             WHERE 1=1";
 
-    if (isset($_GET['truck-name']) && !empty($_GET['truck-name'])) {
-        $truck_name = $_GET['truck-name'];
-        $sql = $sql . "AND truck-name LIKE '%truck_name%'";
+    if (isset($_GET['truck_name']) && !empty($_GET['truck_name'])) {
+        $truck_name = $_GET['truck_name'];
+        $sql = $sql . " AND truck_name LIKE '%$truck_name%'";
     }
 
     $sql = $sql . ";";
+
+    // echo $sql;
 
 
     $results = $mysqli->query($sql);
