@@ -91,14 +91,10 @@ $sql = "SELECT user.user_name AS name, user.user_pic AS user_pic, reviews.review
 				<h1>Favorites</h1>
 
 				<div class="favorite" id="amazebowl">
-					<a href="vendorpage.html"><img src="../resources/images/amazebowl_profile.png"></a>
+					<a href="vendorpage.php?truck_id=1"><img src="../resources/images/amazebowl_profile.png"></a>
 					<p>Amazebowls</p>
 					<div class="stars">
-						<span></span>
-						<span></span>
-						<span></span>
-						<span></span>
-						<span></span>
+						<img class="rating_new" src="../resources/images/5star.png">
 					</div>
 					<button><a href="https://goo.gl/maps/tsdw5qRFzAL2">Locate</a></button>
 				</div>
@@ -107,11 +103,7 @@ $sql = "SELECT user.user_name AS name, user.user_pic AS user_pic, reviews.review
 					<img src="../resources/images/taco_profile.png">
 					<p>El Chato Taco</p>
 					<div class="stars">
-						<span></span>
-						<span></span>
-						<span></span>
-						<span></span>
-						<span></span>
+						<img class="rating_new" src="../resources/images/4star.png">
 					</div>
 					<button><a href="https://goo.gl/maps/m7VFfkrrpMw">Locate</a></button>
 				</div>
@@ -130,56 +122,7 @@ $sql = "SELECT user.user_name AS name, user.user_pic AS user_pic, reviews.review
 								<td class="stars">
 									<img src="<?php echo $row['truck_pic']; ?>" class="img">
 									<p><?php echo $row['truck']; ?></p>
-									<div class="span">
-										<span></span>
-										<span class="<?php
-												$value = strval($row['truck_rating']);
-
-												if ($value == '1star') {
-													echo $value;
-												}
-
-												else {
-
-												}
-											?>star">
-										</span>
-										<span class="<?php
-												$value = strval($row['truck_rating']);
-
-												if ($value == '2star' || $value == '1star') {
-													echo $value;
-												}
-
-												else {
-											
-												}
-											?>star">
-										</span>
-										<span class="<?php
-												$value = strval($row['truck_rating']);
-
-												if ($value == '3star' || $value == '2star' || $value == '1star') {
-													echo $value;
-												}
-
-												else {
-											
-												}
-											?>star">
-										</span>
-										<span class="<?php
-												$value = strval($row['truck_rating']);
-
-												if ($value == '4star' || $value == '3star' || $value == '2star' || $value == '1star') {
-													echo $value;
-												}
-
-												else {
-											
-												}
-											?>star">
-										</span>
+									<img src="../resources/images/<?php echo round($row['rating'] * 2)/2; ?>star.png">
 									</div>
 								</td>
 

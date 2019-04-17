@@ -1,4 +1,5 @@
 <?php
+
     session_start();
 
     $host = "460.itpwebdev.com";
@@ -12,16 +13,18 @@
             exit();
         }
 
-    $sql = "SELECT truck.truck_name AS name, truck.truck_id AS truck_id
+    $sql = "SELECT truck.truck_name AS truck_name, truck.truck_rating AS truck_rating, truck.truck_img AS truck_img, truck.truck_distance AS truck_distance, truck.truck_id AS truck_id
             FROM truck
             WHERE 1=1";
 
-    if (isset($_GET['truck-name']) && !empty($_GET['truck-name'])) {
-        $truck_name = $_GET['truck-name'];
-        $sql = $sql . "AND truck-name LIKE '%truck_name%'";
+    if (isset($_GET['truck_name']) && !empty($_GET['truck_name'])) {
+        $truck_name = $_GET['truck_name'];
+        $sql = $sql . " AND truck_name LIKE '%$truck_name%'";
     }
 
     $sql = $sql . ";";
+
+    // echo $sql;
 
 
     $results = $mysqli->query($sql);
@@ -48,7 +51,6 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="../css/searchresults.css">
         <link rel="stylesheet" href="../css/vendas-style.css">
-        <link rel="stylesheet" href="../css/table.css">
         <script
 			  src="https://code.jquery.com/jquery-3.3.1.min.js"
 			  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
@@ -77,25 +79,88 @@
                 <img src="../resources/images/logo.svg" alt="logo">
             </div>
         </div>
-        <div style="clear: both;"></div>
-        <div id="container-two">
-            <div id="results-number" class="small-title green">6 results</div>
-            <div class="small-title green" id="results-number"><a href="search.php">Return to search</a></div>
-            <table id="searchrecomendations">
-                        <a href="vendorpage.php">
-                                <tr class="recomendation">
-                                    <td class="crop">
-                                        <img src="../resources/images/amazebowl_profile.png" alt="icon">
-                                    </td>
-                                    <td class="vendor-info">
-                                        <div class="vendor-name small-title green">Amazebowls</div>
-                                        <div class="vendor-distance">0.4 miles</div>
-                                        <div class="vendor-rating">Rating here</div>
-                                    </td>
-                                </tr>
+        <div id="results-number" class="small-title green"><?php echo $results->num_rows; ?> results</div>
+        <table id="searchrecomendations">
+                    
+            <?php
+
+                while($row = $results->fetch_assoc() ) : ?>
+                    <tr>
+                        <td class="crop">
+                            <img src="<?php echo $row['truck_img']; ?>">
+                        </td>
+                        <td class="vendor-info">
+                            <a href="vendorpage.php?truck_id=<?php echo $row['truck_id']; ?>"><?php echo $row['truck_name']; ?></a>
+                            <br>
+                            <?php echo $row['truck_distance']; ?> miles
+                            <br>
+                            <?php echo $row['truck_rating']; ?> out of 5
+                        </td>
+                    </tr>
+                 <?php endwhile;?>
+
+
+<!--                     <a href="vendorpage.html">
+                            <tr class="recomendation">
+                                <td class="crop">
+                                    <img src="../resources/images/amazebowl_profile.png" alt="icon">
+                                </td>
+                                <td class="vendor-info">
+                                    <div class="vendor-name small-title green">Amazebowls</div>
+                                    <div class="vendor-distance">0.4 miles</div>
+                                    <div class="vendor-rating">Rating here</div>
+                                </td>
+                            </tr>
                         </a>
-                </table>
-            </div>
+                <a href="vendorpage.html">
+                <tr class="recomendation">
+                        <td class="crop">
+                    <img src="../resources/images/Armandos.jpg" alt="icon">
+                        </td>
+                    <td class="vendor-info">
+                        <div class="vendor-name small-title green">Armando's</div>
+                        <div class="vendor-distance">0.05 miles</div>
+                        <div class="vendor-rating">Rating here</div>
+                    </dt>
+                </tr>
+            </a>
+                <a href="vendorpage.html">
+                <tr class="recomendation">
+                    <td class="crop">
+                    <img src="../resources/images/pink-taco.jpg" alt="icon">
+                    </td>
+                    <td class="vendor-info">
+                        <div class="vendor-name small-title green">Pink Taco</div>
+                        <div class="vendor-distance">0.7 miles</div>
+                        <div class="vendor-rating">Rating here</div>
+                    </td>
+                </tr>
+            </a>
+                <a href="vendorpage.html">
+                <tr class="recomendation">
+                        <td class="crop">
+                    <img src="../resources/images/kogi.png" alt="icon">
+                        </td>
+                    <td class="vendor-info">
+                        <div class="vendor-name small-title green">Kogi</div>
+                        <div class="vendor-distance">0.8 miles</div>
+                        <div class="vendor-rating">Rating here</div>
+                    </td>
+                </tr>
+            </a>
+                <a href="vendorpage.html">
+                <tr class="recomendation">
+                        <td class="crop">
+                    <img src="../resources/images/chato.jpg" alt="icon">
+                        </td>
+                    <td class="vendor-info">
+                        <div class="vendor-name small-title green">El Chato Taco</div>
+                        <div class="vendor-distance">1.5 miles</div>
+                        <div class="vendor-rating">Rating here</div>
+                    </td>
+                </div>
+                </a> -->
+            </table>
         </div>
     </div>
     </body>

@@ -17,7 +17,7 @@ if ($mysqli->connect_errno) {
 } 
 
 if ( !isset($_SESSION['email']) || empty($_SESSION['email']) ) {
-	$sql = "SELECT DISTINCT user.user_pic AS pic, user.user_name AS name, truck.truck_name AS truck, reviews.review AS review, truck.truck_rating AS truck_rating, truck.location AS location
+	$sql = "SELECT DISTINCT user.user_pic AS pic, user.user_name AS name, truck.truck_name AS truck, reviews.review AS review, truck.truck_rating AS truck_rating, truck.location AS location, truck.truck_id AS truck_id
 		FROM reviews
 		LEFT JOIN user
 			ON reviews.user_id = user.user_id
@@ -27,7 +27,7 @@ if ( !isset($_SESSION['email']) || empty($_SESSION['email']) ) {
 		LIMIT 3;";
 } else {
 
-	$sql = "SELECT DISTINCT user.user_pic AS pic, user.user_name AS name, truck.truck_name AS truck, reviews.review AS review, truck.truck_rating AS truck_rating, truck.location AS location
+	$sql = "SELECT DISTINCT user.user_pic AS pic, user.user_name AS name, truck.truck_name AS truck, reviews.review AS review, truck.truck_rating AS truck_rating, truck.location AS location, truck.truck_id AS truck_id
 		FROM reviews
 		LEFT JOIN user
 			ON reviews.user_id = user.user_id
@@ -56,8 +56,9 @@ $mysqli->close();
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="../css/discover.css">
+        
         <link rel="stylesheet" href="../css/table.css">
+        <link rel="stylesheet" href="../css/discover.css">
 	<title>Discover Nearby Eats</title>
 </head>
 <body>
@@ -90,7 +91,7 @@ $mysqli->close();
 
 						<?php while ($row = $results->fetch_assoc() ): ?>
 							<tr>
-								<td><h1><?php echo $row['truck']; ?></h1></td>
+								<td><h1><a href="vendorpage.php?truck_id=<?php echo $row['truck_id']; ?>"><?php echo $row['truck']; ?></a></h1></td>
 								<td>
 									<img src="<?php echo $row['pic']; ?>" class="img">
 									<p><?php echo $row['name']; ?></p>
@@ -104,56 +105,8 @@ $mysqli->close();
 								<td class="review stars">
 									<p>"<?php echo $row['review']; ?>"</p>
 									
-									<div id="span">
-										<span></span>
-										<span class="<?php
-												$value = strval($row['truck_rating']);
-
-												if ($value == '1star') {
-													echo $value;
-												}
-
-												else {
-
-												}
-											?>star">
-										</span>
-										<span class="<?php
-												$value = strval($row['truck_rating']);
-
-												if ($value == '2star' || $value == '1star') {
-													echo $value;
-												}
-
-												else {
-											
-												}
-											?>star">
-										</span>
-										<span class="<?php
-												$value = strval($row['truck_rating']);
-
-												if ($value == '3star' || $value == '2star' || $value == '1star') {
-													echo $value;
-												}
-
-												else {
-											
-												}
-											?>star">
-										</span>
-										<span class="<?php
-												$value = strval($row['truck_rating']);
-
-												if ($value == '4star' || $value == '3star' || $value == '2star' || $value == '1star') {
-													echo $value;
-												}
-
-												else {
-											
-												}
-											?>star">
-										</span>
+									<div class="ratings_img starry">
+										<img class="discover_rating" src="../resources/images/<?php echo $row['truck_rating']; ?>star.png">
 									</div>
 
 									<!-- <div class="bookmark">

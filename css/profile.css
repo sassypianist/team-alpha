@@ -160,6 +160,11 @@ body {
 	height: 100px;
 }
 
+.favorite .rating_new {
+	width: 80px;
+	height: auto;
+}
+
 #amazebowl {
 	margin-right: 10%;
 }
@@ -255,13 +260,22 @@ table {
 	height: 100%;
 }
 
-table td:first-child img {
+table td:first-child img:first-child {
 	margin: 0;
 	height: 80px;
   	width: 80px; 
   	border: 0.5px solid gray; 
   	display: inline-block;
   	border-radius: 90px;
+}
+
+
+table td:first-child img {
+	margin: 0;
+  	width: 80px; 
+  	border: none; 
+  	display: inline-block;
+  	margin-bottom: 20px;
 }
 
 
@@ -301,6 +315,9 @@ table td:nth-child(2) {
     background: #202020;
     opacity: 0.2;
 }
+
+
+
 
 
 

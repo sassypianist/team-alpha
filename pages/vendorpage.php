@@ -34,6 +34,8 @@ session_start();
             ON reviews.user_id = user.user_id            
         WHERE truck.truck_id = " .$_GET['truck_id']. ";";
 
+        // echo "<hr>$sql<hr>";
+
     $results = $mysqli->query($sql);
     
     if ( !$results ) {
@@ -41,7 +43,20 @@ session_start();
         exit();
     }
 
-    $row = $results->fetch_assoc();
+    $sql_vendor = "SELECT *
+        FROM truck
+        WHERE truck.truck_id = " .$_GET['truck_id']. ";";
+
+        // echo "<hr>$sql<hr>";
+
+    $results_vendor = $mysqli->query($sql_vendor);
+    
+    if ( !$results_vendor ) {
+        echo $mysqli->error;
+        exit();
+    }
+
+    $row_vendor = $results_vendor->fetch_assoc();
 
     $mysqli->close();
 
@@ -98,7 +113,7 @@ session_start();
     <?php else : ?>
         <div id="content">
             <div id="cover-overlay">
-                <img src="<?php echo $row['truck_img']; ?>">
+                <img src="<?php echo $row_vendor['truck_img']; ?>">
                     <div id="exit-button">
 
                     </div>
@@ -106,84 +121,36 @@ session_start();
             </div>
             <div class="header-image">
                 <a id="header-image-link">
-                    <img src="<?php echo $row['truck_img']; ?>">
+                    <img src="<?php echo $row_vendor['truck_img']; ?>">
                 </a>
             </div>
             <div id="vendor-info">
                 <div id="top-info">
                     <div id="title-wrapper">
                         <div id="vendor-name" class="medium-title green">
-                            <?php echo $row['truck_name']; ?>
+                            <?php echo $row_vendor['truck_name']; ?>
                         </div>
                         <div id="phone-number">
-                            <?php echo $row['phone_number']; ?>
+                            <?php echo $row_vendor['phone_number']; ?>
                         </div>
                         <div id="hours-wrapper">
                             <div id="hours">
-                                <?php echo $row['open']; ?>AM - 
-                                <?php echo $row['close']; ?>PM)
+                                <?php echo $row_vendor['open_time']; ?>AM - 
+                                <?php echo $row_vendor['close_time']; ?>PM)
                             </div>
                         </div>
                         <div class="stars">
                             <div class="">
-                                        <span></span>
-                                        <span class="<?php
-                                                $value = strval($row['truck_rating']);
-
-                                                if ($value == '1star') {
-                                                    echo $value;
-                                                }
-
-                                                else {
-
-                                                }
-                                            ?>star">
-                                        </span>
-                                        <span class="<?php
-                                                $value = strval($row['truck_rating']);
-
-                                                if ($value == '2star' || $value == '1star') {
-                                                    echo $value;
-                                                }
-
-                                                else {
-                                            
-                                                }
-                                            ?>star">
-                                        </span>
-                                        <span class="<?php
-                                                $value = strval($row['truck_rating']);
-
-                                                if ($value == '3star' || $value == '2star' || $value == '1star') {
-                                                    echo $value;
-                                                }
-
-                                                else {
-                                            
-                                                }
-                                            ?>star">
-                                        </span>
-                                        <span class="<?php
-                                                $value = strval($row['truck_rating']);
-
-                                                if ($value == '4star' || $value == '3star' || $value == '2star' || $value == '1star') {
-                                                    echo $value;
-                                                }
-
-                                                else {
-                                            
-                                                }
-                                            ?>star">
-                                        </span>
-                                    </div>
+                            <img src="../resources/images/<?php echo round($row_vendor['truck_rating'] * 2)/2; ?>star.png">
+                            </div>
                         </div>
                     </div>
                     <div id="favorite-button" >
-                        <img id="favorite-image" class="unchecked" src="../resources/images/save.png">
+                        <!-- <img id="favorite-image" class="unchecked" src="../resources/images/save.png"> -->
                     </div>
                 </div>
                 <div id="description" class="dark-gray">
-                        <?php echo $row['background']; ?>             
+                        <?php echo $row_vendor['background']; ?>             
                 </div>
                 <div id="map-wrapper">
                     <div class="map">
@@ -201,7 +168,7 @@ session_start();
                     <table class="">
                     <tbody>
                         <?php while ($row = $results->fetch_assoc() ): ?>
-                        <?php echo $row['review'];?><tr>
+                            <tr>
 
                         <td class="">
                             <div class="profile_photo">
@@ -209,59 +176,11 @@ session_start();
                             </div>
                             <div class=""><?php echo $row['user'];?></div>
                             <div class="stars">
-                                        <span></span>
-                                        <span class="<?php
-                                                $value = strval($row['truck_rating']);
-
-                                                if ($value == '1star') {
-                                                    echo $value;
-                                                }
-
-                                                else {
-
-                                                }
-                                            ?>star">
-                                        </span>
-                                        <span class="<?php
-                                                $value = strval($row['truck_rating']);
-
-                                                if ($value == '2star' || $value == '1star') {
-                                                    echo $value;
-                                                }
-
-                                                else {
-                                            
-                                                }
-                                            ?>star">
-                                        </span>
-                                        <span class="<?php
-                                                $value = strval($row['truck_rating']);
-
-                                                if ($value == '3star' || $value == '2star' || $value == '1star') {
-                                                    echo $value;
-                                                }
-
-                                                else {
-                                            
-                                                }
-                                            ?>star">
-                                        </span>
-                                        <span class="<?php
-                                                $value = strval($row['truck_rating']);
-
-                                                if ($value == '4star' || $value == '3star' || $value == '2star' || $value == '1star') {
-                                                    echo $value;
-                                                }
-
-                                                else {
-                                            
-                                                }
-                                            ?>star">
-                                        </span>
+                                <img class="star_img" src="../resources/images/<?php echo $row['user_rating']; ?>star.png">
                             </div>
                         </td>
                         <td>
-                            <p><?php echo $row['review']; ?></p>
+                            <?php echo $row['review']; ?>
                         </td>
 
                         </tr>   
