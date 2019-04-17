@@ -77,7 +77,7 @@
                     <form action="searchresults.php" id="search-bar" method="GET">
                         <input type="text" id="truck-name" name="truck_name" placeholder="Search Vendors..."></input>
                         <div id="search_submit">
-                            <img id="search_submit_images" src="../resources/images/search-icon.png" alt="">
+                            <button type="submit"><img id="search_submit_images" src="../resources/images/search-icon.png" alt=""></button>
                         </div>
                     </form>
                     <div id="searchrecomendations">
