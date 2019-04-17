@@ -8,6 +8,9 @@
     font-family: AvenirNextBold;
     src: url(../resources/fonts/an-bold.ttf)
 }
+html{
+	display:none;
+}
 .normal-text{
     font-family: AvenirNextMedium;
     font-size: 14px;
