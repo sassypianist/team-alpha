@@ -32,9 +32,7 @@ session_start();
             ON reviews.truck_id = truck.truck_id
         LEFT JOIN user
             ON reviews.user_id = user.user_id            
-        WHERE truck.truck_id = " . $_GET['truck_id'] . "
-        ORDER BY RAND() 
-        LIMIT 10;";
+        WHERE truck.truck_id = " .$_GET['truck_id']. ";";
 
     $results = $mysqli->query($sql);
     

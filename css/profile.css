@@ -276,7 +276,7 @@ table td:nth-child(2) {
 	color: black;
 	height:auto;
 	overflow:visible;
-
+	padding: 10px;
 }
 
 .stars span {
