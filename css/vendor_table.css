@@ -1,0 +1,64 @@
+.stars .span span {
+  background: #F8E71C;
+  height: 12px;
+  width: 12px;  
+  display: inline-block;
+  border-radius: 12px;
+  float: left;
+}
+
+[class="2star"] {
+    background: #202020;
+    opacity: 0.2;
+}
+
+[class="3star"] {
+    background: #202020;
+    opacity: 0.2;
+}
+
+[class="4star"] {
+    background: #202020;
+    opacity: 0.2;
+}
+
+#reviews-wrapper {
+	margin: 0 5% 20px 5%;
+	width: 90%;
+}
+
+table {
+	
+}
+
+td:first-child {
+	width: 35%;
+	text-align: center;
+	padding: 5px;
+	box-sizing: border-box;
+}
+
+td:first-child .profile_photo {
+	height: 80px;
+  	width: 80px; 
+  	border: 0.5px solid gray; 
+  	display: inline-block;
+  	border-radius: 90px;
+}
+
+td:nth-child(2) {
+	width: 65%;
+	border: solid 1px grey;
+    border-radius: 10px;
+    box-sizing: border-box;
+    padding: 10px;
+    display: table-cell;
+    vertical-align: top;
+}
+td:nth-child(2) p{
+	margin: 0;
+}
+
+td:first-child .star_img img {
+  width: 80px;
+}

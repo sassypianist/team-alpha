@@ -59,16 +59,32 @@ input, textarea, select, button {
 	border-width: 0px 0px 1px 0px;
 }
 
+body {
+	height: 100%;
+}
+
+#container {
+	height: 100%;
+}
+
 #login {
 	font-size: 18pt;
 	text-align: center;
 	font-family: AvenirNextMedium;
+	background-color: white;
+	height: 100%;
 }
 
 #login h3 {
-	font-size: 24pt;
 	font-family: AvenirNextBold;
+	font-size: 36pt;
+	text-align: center;
 	color: #33ABAB;
+	line-height: 200px;
+	background-color: white;
+	height: 200px;
+	padding: 32px;
+	margin: 0px;
 }
 
 #login label {
@@ -78,6 +94,11 @@ input, textarea, select, button {
 	display: inline-block;
 	width: 120px;
 	text-align: right;
+}
+
+#login a {
+	color: #202020;
+	opacity: 0.54;
 }
 
 #email-label {
@@ -97,12 +118,10 @@ input, textarea, select, button {
 #register_redirect {
 	text-decoration: none;
 	font-size: 11pt;
-	color: #202020;
-	opacity: 0.54;
+	color: white;
 	font-style: italic;
 	font-weight: none;
 }
-
 
 
 

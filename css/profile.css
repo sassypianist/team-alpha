@@ -160,6 +160,11 @@ body {
 	height: 100px;
 }
 
+.favorite .rating_new {
+	width: 80px;
+	height: auto;
+}
+
 #amazebowl {
 	margin-right: 10%;
 }
@@ -224,25 +229,38 @@ body {
 	box-sizing: border-box;
 }
 
-.review .user-review {
-	width: 68%;
-	height: 180px;
-	border: solid 0.5px black;
-	border-radius: 20px;
-	box-sizing: border-box;
-	margin: 0 0 0 2%;
-	float: left;
-	font-size: 12pt;
-	color: black;
-	padding: 15px;
-}
 
-.review .user-review p {
-	margin: 0;
+
+#top #profile-header #error p {
+	text-align: center;
+	height: 400px;
+	line-height: 400px;
+	font-size: 22pt;
 }
 
 
-.identity .profile-pic {
+
+
+/** TABLE INFO **/
+
+#reviews td:first-child {
+    text-align: center;
+    color: black;
+    background-color: white;
+    width: 45%;
+    margin-right: 5%;
+    box-sizing: border-box;
+}
+
+.span {
+    margin-bottom: 30px;
+}
+
+table {
+	height: 100%;
+}
+
+table td:first-child img:first-child {
 	margin: 0;
 	height: 80px;
   	width: 80px; 
@@ -251,28 +269,56 @@ body {
   	border-radius: 90px;
 }
 
-.identity .stars span {
-	background: #F8E71C;
-  	height: 11px;
-  	width: 11px;  
+
+table td:first-child img {
+	margin: 0;
+  	width: 80px; 
+  	border: none; 
   	display: inline-block;
-  	border-radius: 11px;
+  	margin-bottom: 20px;
 }
 
-#threestars span:nth-child(4) {
-	background: #202020;
-	opacity: 0.2;
+
+table td:nth-child(2) {
+	width: 100%;
+	border: solid 0.5px black;
+	border-radius: 20px;
+	box-sizing: border-box;
+	margin: 0 0 0 2%;
+	float: left;
+	font-size: 12pt;
+	color: black;
+	height:auto;
+	overflow:visible;
+	padding: 10px;
 }
 
-#fivestars span:nth-child(5) {
-	background: #F8E71C;
-	opacity: 1;
+.stars span {
+  background: #F8E71C;
+  height: 12px;
+  width: 12px;  
+  display: inline-block;
+  border-radius: 12px;
 }
 
-.identity .stars span:nth-child(5) {
-	background: #202020;
-	opacity: 0.2;
+[class="2star"] {
+    background: #202020;
+    opacity: 0.2;
 }
+
+[class="3star"] {
+    background: #202020;
+    opacity: 0.2;
+}
+
+[class="4star"] {
+    background: #202020;
+    opacity: 0.2;
+}
+
+
+
+
 
 
 

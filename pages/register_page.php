@@ -14,11 +14,10 @@
 	<div id="menu">
 				<img src="../resources/images/close.png" id="close">
 				<div id="menu-links">
-					<a href="search.html">Search Vendors</a>
-					<a href="discover_page.html">Discover</a>
-					<a href="userprofile.html">Your Favorites</a>
-					<a href="login_page.php">Login</a>
-					<a href="register_page.php">Register</a>
+					<a href="search.php">Search Vendors</a>
+					<a href="discover_page.php">Discover</a>
+					<a href="userprofile.php">Your Favorites</a>
+					<?php include 'nav.php'; ?>
 				</div>
 	</div>
 	<div id="container">
