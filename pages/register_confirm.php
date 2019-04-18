@@ -1,26 +1,69 @@
-<?php 
-	session_start();
+<?php
+session_start();
+if (!isset($_POST['name']) || empty($_POST['name']) ) {
+	$error = "Please fill out all required fields.";
+}
+
+
+elseif (!isset($_POST['email']) || empty($_POST['email']) ) {
+	$error = "Please fill out all required fields.";
+}
+
+elseif (!isset($_POST['vemail']) || empty($_POST['vemail']) ) {
+	$error = "Please fill out all required fields.";
+}
+
+elseif (!isset($_POST['password']) || empty($_POST['password']) ) {
+	$error = "Please fill out all required fields.";
+} 
+
+elseif (!isset($_POST['vpassword']) || empty($_POST['vpassword']) ) {
+	$error = "Please fill out all required fields.";
+} 
+
+elseif (($_POST['password'] !== $_POST['vpassword']) || ($_POST['email'] !== $_POST['vemail']) ) {
+		$error = "Password or email does not match.";
+}
+
+elseif (!isset($_POST['phone_number']) || empty($_POST['phone_number']) ) {
+	$error = "Please fill out all required fields.";
+}
+
+else {
 	$host = "460.itpwebdev.com";
-	$username = "alpha_admin";
-	$password = "alpha2019";
+	$user = "alpha_admin";
+	$pass = "alpha2019";
 	$db = "alpha_vendas_db";
 
-	$mysqli = new mysqli($host, $username, $password, $db);
-
-	if ( $mysqli->connect_errno ) {
-		echo $mysqli->connect_error;
-		exit();
-	}
-
-	$sql_user = "SELECT * FROM user;";
-	$results_user = $mysqli->query($sql_user);
-	if ( $results_user == false) {
+	$mysqli = new mysqli($host, $user, $pass, $db);
+	if ( $mysqli->errno ) {
 		echo $mysqli->error;
-
 		exit();
 	}
 
-	$mysqli->close();
+
+		$sql = "INSERT INTO user (user_name, email, password, phone_number)
+						VALUES ( '"
+						. $_POST['name']
+						. "', '"
+						. $_POST['email']
+						. "', '"
+						. $_POST['password']
+						. "', "
+						. $_POST['phone_number']
+						. ");";
+
+		echo "<hr>" . $sql . "<hr>";
+
+		$results = $mysqli->query($sql);
+		if ( !$results ) {
+			echo $mysqli->error;
+			exit();
+		}
+
+		$mysqli->close();
+
+	}
 
 ?>
 <!DOCTYPE html>
@@ -60,28 +103,15 @@
 
 			<div id="register">
 				<h3>Create a new account</h3>
-					<form action="register_confirm.php" method="POST">
-						<label for="name" id="email-label">Name:</label>
-						<input name="name" type="text" placeholder="name">
+					<?php if ( isset($error) && !empty($error) ) : ?>
+						<?php echo $error; ?>
+						<?php echo $_POST['email']; ?>
+					<?php else : ?>
+						<p>Welcome, <?php echo $_POST['name']; ?>, to vendas!</p>
+						<a href="login_page.php" id="login_redirect">Please click here to login to your new account.</a>
+					</div>
+					<?php endif; ?>
 
-						<label for="email" id="email-label">Email:</label>
-						<input name="email" type="text" placeholder="email">
-
-						<label for="vemail" id="email-label">Verify Email:</label>
-						<input name="vemail" type="text" placeholder=" email">
-
-						<label for="password">Password:</label>
-						<input name="password" type="password" placeholder="password">
-
-						<label for="vpassword">Verify Password:</label>
-						<input name="vpassword" type="password" placeholder="vpassword">
-
-						<label for="phone_number">Phone Number:</label>
-						<input type="text" name="phone_number">
-
-						<button type="submit" id="submit" value="login">Register</button>
-					</form>
-					<a href="login_page.php" id="login_redirect">Have an account? Login here.</a>
 			</div>
 
 

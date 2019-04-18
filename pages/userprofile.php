@@ -87,30 +87,6 @@ $sql = "SELECT user.user_name AS name, user.user_pic AS user_pic, reviews.review
 				</div>
 			</div>
 
-			<div id="favorites">
-				<h1>Favorites</h1>
-
-				<div class="favorite" id="amazebowl">
-					<a href="vendorpage.php?truck_id=1"><img src="../resources/images/amazebowl_profile.png"></a>
-					<p>Amazebowls</p>
-					<div class="stars">
-						<img class="rating_new" src="../resources/images/5star.png">
-					</div>
-					<button><a href="https://goo.gl/maps/tsdw5qRFzAL2">Locate</a></button>
-				</div>
-
-				<div class="favorite">
-					<img src="../resources/images/taco_profile.png">
-					<p>El Chato Taco</p>
-					<div class="stars">
-						<img class="rating_new" src="../resources/images/4star.png">
-					</div>
-					<button><a href="https://goo.gl/maps/m7VFfkrrpMw">Locate</a></button>
-				</div>
-
-				<div class="clearfloat"></div>
-			</div>
-
 			<div id="reviews">
 				<h1>My Reviews</h1>
 
