@@ -41,6 +41,8 @@ else {
 		exit();
 	}
 
+	$password = hash('sha256', $_POST['password']);
+
 
 		$sql = "INSERT INTO user (user_name, email, password, phone_number)
 						VALUES ( '"
@@ -48,7 +50,7 @@ else {
 						. "', '"
 						. $_POST['email']
 						. "', '"
-						. $_POST['password']
+						. $password
 						. "', "
 						. $_POST['phone_number']
 						. ");";
