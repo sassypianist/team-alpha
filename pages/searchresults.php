@@ -90,7 +90,7 @@
                             <img src="<?php echo $row['truck_img']; ?>">
                         </td>
                         <td class="vendor-info">
-                            <a href="vendorpage.php?truck_id=<?php echo $row['truck_id']; ?>"><?php echo $row['truck_name']; ?></a>
+                            <a class="medium-title green" href="vendorpage.php?truck_id=<?php echo $row['truck_id']; ?>"><?php echo $row['truck_name']; ?></a>
                             <br>
                             <?php echo $row['truck_distance']; ?> miles
                             <br>

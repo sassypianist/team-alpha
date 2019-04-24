@@ -17,7 +17,7 @@ if ($mysqli->connect_errno) {
 } 
 
 if ( !isset($_SESSION['email']) || empty($_SESSION['email']) ) {
-	$sql = "SELECT DISTINCT user.user_pic AS pic, user.user_name AS name, truck.truck_name AS truck, reviews.review AS review, truck.truck_rating AS truck_rating, truck.location AS location, truck.truck_id AS truck_id
+	$sql = "SELECT DISTINCT user.user_pic AS pic, user.user_name AS name, truck.truck_name AS truck, reviews.review AS review, truck.truck_rating AS truck_rating, truck.location AS location, truck.truck_id AS truck_id, truck.truck_img AS truck_img
 		FROM reviews
 		LEFT JOIN user
 			ON reviews.user_id = user.user_id
@@ -27,7 +27,7 @@ if ( !isset($_SESSION['email']) || empty($_SESSION['email']) ) {
 		LIMIT 3;";
 } else {
 
-	$sql = "SELECT DISTINCT user.user_pic AS pic, user.user_name AS name, truck.truck_name AS truck, reviews.review AS review, truck.truck_rating AS truck_rating, truck.location AS location, truck.truck_id AS truck_id
+	$sql = "SELECT DISTINCT user.user_pic AS pic, user.user_name AS name, truck.truck_name AS truck, reviews.review AS review, truck.truck_rating AS truck_rating, truck.location AS location, truck.truck_id AS truck_id, truck.truck_img AS truck_img
 		FROM reviews
 		LEFT JOIN user
 			ON reviews.user_id = user.user_id
@@ -58,7 +58,8 @@ $mysqli->close();
         <meta name="viewport" content="width=device-width, initial-scale=1">
         
         <link rel="stylesheet" href="../css/table.css">
-        <link rel="stylesheet" href="../css/discover.css">
+		<link rel="stylesheet" href="../css/discover.css">
+		<link rel="stylesheet" href="../css/vendas-style.css">
 	<title>Discover Nearby Eats</title>
 </head>
 <body>
@@ -91,16 +92,16 @@ $mysqli->close();
 
 						<?php while ($row = $results->fetch_assoc() ): ?>
 							<tr>
-								<td><h1><a href="vendorpage.php?truck_id=<?php echo $row['truck_id']; ?>"><?php echo $row['truck']; ?></a></h1></td>
+								<td class="truckcover" style='background-image: url("<?php echo $row['truck_img']; ?>"); background-repeat: no-repeat; background-size: cover; background-position: center; '>
+									<div class="photocover">
+    
+										<h1><a class="medium-title" href="vendorpage.php?truck_id=<?php echo $row['truck_id']; ?>"><?php echo $row['truck']; ?></a></h1>
+										<button><a href="<?php echo $row['location']; ?>">Locate</a></button>
+									</div>
+								</td>
 								<td>
 									<img src="<?php echo $row['pic']; ?>" class="img">
 									<p><?php echo $row['name']; ?></p>
-								</td>
-
-								<td>
-								
-									<br>
-									<button><a href="<?php echo $row['location']; ?>">Locate</a></button>
 								</td>
 								<td class="review stars">
 									<p>"<?php echo $row['review']; ?>"</p>
