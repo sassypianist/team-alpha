@@ -55,7 +55,7 @@ else {
 						. $_POST['phone_number']
 						. ");";
 
-		echo "<hr>" . $sql . "<hr>";
+		// echo "<hr>" . $sql . "<hr>";
 
 		$results = $mysqli->query($sql);
 		if ( !$results ) {

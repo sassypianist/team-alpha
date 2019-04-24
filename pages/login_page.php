@@ -23,8 +23,8 @@ if ( !isset($_SESSION['logged_in']) || !$_SESSION['logged_in'] ) {
 
 		$email = $_POST['email'];
 
-		$password = $_POST['password'];
-
+		$password = hash('sha256', $_POST['password']);
+		
 		$sql = "SELECT password
   				FROM user
   				WHERE email = '" . $email . "';";
