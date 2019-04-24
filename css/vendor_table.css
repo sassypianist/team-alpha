@@ -26,9 +26,20 @@
 	margin: 0 5% 20px 5%;
 	width: 90%;
 }
+#cover-overlay{
+  display:none;
+}
 
 table {
 	
+}
+.starsrating{
+  width:100px;
+  height:auto;
+}
+.starsrating img{
+  width:100px;
+  height:auto;
 }
 
 td:first-child {
@@ -61,4 +72,22 @@ td:nth-child(2) p{
 
 td:first-child .star_img img {
   width: 80px;
+}
+#review_title_wrapper{
+  display: inline;
+}
+h2{
+  display: inline;
+
+}
+#add_review_button{
+  margin-left:25px;
+  display: inline-block;
+  background-color: #33abab;
+  color:white;
+  width:25px;
+  height:25px;
+  line-height: 25px;
+  text-align: center;
+  border-radius: 5px;
 }

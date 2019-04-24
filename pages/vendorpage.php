@@ -77,6 +77,7 @@ session_start();
         <link rel="stylesheet" href="../css/vendorpage.css">
         <link rel="stylesheet" href="../css/vendas-style.css">
         <link rel="stylesheet" href="../css/vendor_table.css">
+        <link rel="stylesheet" href="../css/vendor_table.css">
         <script
 			  src="https://code.jquery.com/jquery-3.3.1.min.js"
 			  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
@@ -140,7 +141,7 @@ session_start();
                             </div>
                         </div>
                         <div class="stars">
-                            <div class="">
+                            <div class="starsrating">
                             <img src="../resources/images/<?php echo round($row_vendor['truck_rating'] * 2)/2; ?>star.png">
                             </div>
                         </div>
@@ -162,8 +163,10 @@ session_start();
 
 
                 <div id="reviews-wrapper">
-                    <h2 class="medium-title green">Reviews</h2>
-
+                    <div id="review_title_wrapper">
+                        <h2 class="medium-title green">Reviews</h2>
+                        <a href=""><div id="add_review_button" class="medium-title">+</div></a>
+                    </div>
 
                     <table class="">
                     <tbody>
@@ -175,7 +178,7 @@ session_start();
                                 <img src="<?php echo $row['user_pic']; ?>">
                             </div>
                             <div class=""><?php echo $row['user'];?></div>
-                            <div class="stars">
+                            <div class="starsrating">
                                 <img class="star_img" src="../resources/images/<?php echo $row['user_rating']; ?>star.png">
                             </div>
                         </td>

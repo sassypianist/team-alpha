@@ -48,8 +48,8 @@
 			  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
               crossorigin="anonymous">
         </script>
-        <script src="../javascript/vendas.js"></script> 
-        <script src="../javascript/search.js"></script> 
+        <script Content-Type="text/javascript" src="../javascript/vendas.js"></script> 
+        <script Content-Type="text/javascript" src="../javascript/search.js"></script> 
     <script data-cfasync="false" charset="utf-8" > ;(function (g) { g.aurycReadyCb = g.aurycReadyCb || []; var d = document, i, am = d.createElement("script"), h = d.head || d.getElementsByTagName("head")[0],aex = { "src": "//cdn-dev.userty.com/980-usc-sandbox1com/container.js", "data-cfasync": "false", "async": "true", "defer": "true", "data-vendor": "userty", "data-role": "container", "charset": "utf-8" }; for (var attr in aex) { am.setAttribute(attr,aex[attr]); } h.appendChild(am); })(window); </script>
         
     </head>
@@ -76,9 +76,9 @@
                 <div id="search-wrapper">
                     <h1 class="green large-title">Find Street Vendors</h1>
                     <form action="searchresults.php" id="search-bar" method="GET">
-                        <input type="text" id="truck-name" name="truck_name" placeholder="Search Vendors..."></input>
+                        <input type="text" id="truck-name" name="truck_name" placeholder="Search Vendors...">
                         <div id="search_submit">
-                            <button type="submit"><img id="search_submit_images" src="../resources/images/search-icon.png" alt=""></button>
+                            <button type="submit" id="search_submit_button"><img id="search_submit_images" src="../resources/images/search-icon.png" alt=""></button>
                         </div>
                     </form>
                     <div id="searchrecomendations">
