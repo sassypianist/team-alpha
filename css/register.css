@@ -1,0 +1,104 @@
+@font-face{
+    font-family: AvenirNextBold;
+    src: url(../resources/fonts/an-bold.ttf)
+}
+
+@font-face{
+    font-family: AvenirNextMedium;
+    src: url(../resources/fonts/an-medium.ttf)
+}
+
+#menu {
+	background-color: #33ABAB;
+	width: 230px;
+	padding: 30px 30px 0px 30px;
+	height: 100%;
+	position: fixed;
+	text-align: center;
+	z-index: 2;
+
+	left: -290px;
+	transition: all 0.4s ease-in-out;
+}
+
+#container {
+	width: 100%;
+}
+
+#menu-links {
+	margin-top: 70px;
+}
+
+#panel {
+	z-index: 1;
+}
+
+#menu img {
+	width: 20px;
+	float: right;
+}
+
+#menu img:after {
+	clear: both;
+}
+
+#menu a {
+	text-decoration: none;
+	font-family: AvenirNextBold;
+	font-size: 18pt;
+	text-decoration: none;
+	color: white;
+	box-sizing: border-box;
+	display: block;
+	margin-top: 30px;
+}
+
+input, textarea, select, button {
+	border-color: #202020;
+	opacity: 0.2;
+	border-width: 0px 0px 1px 0px;
+}
+
+#register {
+	font-size: 18pt;
+	text-align: center;
+	width: 100%;
+}
+
+#register h3 {
+	font-size: 22pt;
+	font-family: AvenirNextBold;
+}
+
+#register label {
+	font-size:11pt;
+	color: #202020;
+	opacity: 0.54;
+	display: inline-block;
+	width: 120px;
+	text-align: right;
+}
+
+
+#email-label {
+	margin-left: 0px;
+}
+
+#submit {
+	background-color: #202020;
+	opacity: 0.54;
+	border-radius: 20px;
+	color: white;
+	padding: 5px 40px;
+	font-size: 14pt;
+	margin: 20px 0px 32px 0px;
+}
+
+#login_redirect {
+	text-decoration: none;
+	font-size: 11pt;
+	color: #202020;
+	opacity: 0.54;
+	font-style: italic;
+	font-weight: none;
+}

@@ -17,6 +17,7 @@
         height:75px;
         position: absolute;
         top:0;
+        background-color:
     }
     #hamburger-menu{
         position: absolute;
@@ -79,9 +80,10 @@
         color: black;
     }
     #results-number{
-        margin-left:5%;
-        margin-top:10px;
-        margin-bottom:20px;
+        position: absolute;
+        top:65px;
+        left:5%;
+
     }
     .recomendation{
         display: flex;
@@ -113,7 +115,47 @@
         width:100px;
         overflow: hidden;
     }
-    
+    .vendor-rating span {
+        background: #F8E71C;
+        height: 12px;
+        width: 12px;  
+        display: inline-block;
+        border-radius: 12px;
+    }
+
+    .vendor-rating #threestars span:nth-child(4) {
+        background: #202020;
+        opacity: 0.2;
+    }
+
+    .vendor-rating #twostars span:nth-child(3) {
+        background: #202020;
+        opacity: 0.2;
+    }
+
+    .vendor-rating #onestar span:nth-child(2) {
+        background: #202020;
+        opacity: 0.2;
+    }
+
+    .vendor-rating span:nth-child(5) {
+        background: #202020;
+        opacity: 0.2;
+    }
+    #searchrecomendations{
+        position:absolute;
+        top:90px;
+        left:0;
+        width:90%;
+
+    }
+    .crop img{
+        width:150px;
+        height:auto;
+
+    }
+
+
 }
 h1{
     margin-top:95px;

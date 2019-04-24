@@ -58,7 +58,7 @@
         color: #9B9B9B;
         height: 25px;
         padding: 10px 0px 10px 40px;
-        border-radius: 15px 0px 0px 15px;
+        border-radius: 5px 0px 0px 5px;
         border: solid 1px #9B9B9B;
         border-right:none;
         background: url("../resources/images/search-icon-dark-01.png");
@@ -68,19 +68,21 @@
         
     }
     #search_submit{
-        width: 50px;
-        background-color: #33abab;
-        height: 47px;
-        border-radius: 0px 15px 15px 0px;
-        border-left:none;
+
     }
     #search_submit img {
         width:30px;
-        margin-top:10px;
-
-        margin-left:10px;
-
+        margin-top:5px;
+        margin-left:5px;  
         
+    }
+    #search_submit_button{
+        width: 50px;
+        height: 47px;
+        background-color: #33abab;
+        border: 0px solid;
+        border-radius: 0px 5px 5px 0px;
+        border-left:none;
     }
     #searchrecomendations{
         display: flex;
