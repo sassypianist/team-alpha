@@ -62,6 +62,7 @@ input, textarea, select, button {
 #register {
 	font-size: 18pt;
 	text-align: center;
+	width: 100%;
 }
 
 #register h3 {
@@ -70,13 +71,14 @@ input, textarea, select, button {
 }
 
 #register label {
-	font-size: 11pt;
+	font-size:11pt;
 	color: #202020;
 	opacity: 0.54;
 	display: inline-block;
 	width: 120px;
 	text-align: right;
 }
+
 
 #email-label {
 	margin-left: 0px;

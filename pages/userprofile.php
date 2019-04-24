@@ -23,11 +23,13 @@ if ( !isset($_SESSION['email']) || empty($_SESSION['email']) ) {
 	
 $sql = "SELECT user.user_name AS name, user.user_pic AS user_pic, reviews.review AS review, reviews.rating AS rating, truck.truck_name AS truck, truck.truck_img AS truck_pic
 		FROM reviews
-		LEFT JOIN user
+		RIGHT JOIN user
 			ON reviews.user_id = user.user_id
 		LEFT JOIN truck
 			ON reviews.truck_id = truck.truck_id
 		WHERE user.email = '" . $_SESSION['email'] . "';";
+
+		// echo "<hr>$sql<hr>";
 
 	$results = $mysqli->query($sql);
 
@@ -37,6 +39,8 @@ $sql = "SELECT user.user_name AS name, user.user_pic AS user_pic, reviews.review
 	}
 
 	$row = $results->fetch_assoc();
+
+	// echo "<hr>$row<hr>";
 
 	$mysqli->close();
 
@@ -85,30 +89,6 @@ $sql = "SELECT user.user_name AS name, user.user_pic AS user_pic, reviews.review
 					<h1><?php echo $row['name']; ?></h1>
 					<p>Los Angeles, CA</p>
 				</div>
-			</div>
-
-			<div id="favorites">
-				<h1>Favorites</h1>
-
-				<div class="favorite" id="amazebowl">
-					<a href="vendorpage.php?truck_id=1"><img src="../resources/images/amazebowl_profile.png"></a>
-					<p>Amazebowls</p>
-					<div class="stars">
-						<img class="rating_new" src="../resources/images/5star.png">
-					</div>
-					<button><a href="https://goo.gl/maps/tsdw5qRFzAL2">Locate</a></button>
-				</div>
-
-				<div class="favorite">
-					<img src="../resources/images/taco_profile.png">
-					<p>El Chato Taco</p>
-					<div class="stars">
-						<img class="rating_new" src="../resources/images/4star.png">
-					</div>
-					<button><a href="https://goo.gl/maps/m7VFfkrrpMw">Locate</a></button>
-				</div>
-
-				<div class="clearfloat"></div>
 			</div>
 
 			<div id="reviews">
